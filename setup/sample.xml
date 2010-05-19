@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+	<binding fileName="modules/generic/persistentdocument/import/generic_binding.xml" />
+	<binding fileName="modules/notification/persistentdocument/import/notification_binding.xml" />
+	<binding fileName="modules/website/persistentdocument/import/website_binding.xml" />
+	<binding fileName="modules/users/persistentdocument/import/users_binding.xml" />
+	<binding fileName="modules/form/persistentdocument/import/form_binding.xml" />
+	<binding fileName="modules/inquiry/persistentdocument/import/inquiry_binding.xml" />
+
+	<backenduser byLogin="wwwadmin" id="wwwadmin" />
+	
+	<systemfolder module="notification" relatedmodule="inquiry">
+		<notification codename="modules_inquiry/messageFromAuthor" id="n1"
+			label="Message envoyé par le demandeur"
+			subject="Message de l'auteur de la demande numéro {inquiryId}"
+			header="&lt;strong&gt;Message à propos de la {inquiryLink}.&lt;/strong&gt;"
+			body="&lt;p&gt;{messageContents}&lt;/p&gt;"
+			availableparameters="{inquiryId}, {inquiryLabel}, {inquiryUrl}, {inquiryLink}, {inqiuryCreationdate}, {messageContents}" />
+			
+		<notification codename="modules_inquiry/messageFromReceiver" id="n2"
+			label="Message envoyé à un client"
+			subject="Message d'un destinataire de la demande numéro {inquiryId}"
+			header="&lt;strong&gt;Message à propos de la {inquiryLink}.&lt;/strong&gt;"
+			body="&lt;p&gt;{messageContents}&lt;/p&gt;"
+			availableparameters="{inquiryId}, {inquiryLabel}, {inquiryUrl}, {inquiryLink}, {inqiuryCreationdate}, {messageContents}" />
+			
+		<notification codename="modules_inquiry/closeInquiry" id="n3"
+			label="Clôture de la demande"
+			subject="Clôture de la demande numéro {inquiryId}"
+			body="&lt;strong&gt;La {inquiryLink} vient d'être clôturée.&lt;/strong&gt;"
+			availableparameters="{inquiryId}, {inquiryLabel}, {inquiryUrl}, {inquiryLink}, {inqiuryCreationdate}" />
+	</systemfolder>
+	
+	<rootfolder module="form">
+		<inquiryform id="inquiryform" label="Formulaire de demande" description="Exemple de formulaire de demande" submitButton="Envoyer"
+			confirmMessage="Votre message nous a bien été transmis. Il sera traité sous 48 heures. Merci" markup="default" useCaptcha="true" receiver-refid="wwwadmin"
+			messageByAuthorNotification-refid="n1" messageByReceiverNotification-refid="n2" closeInquiryNotification-refid="n3">
+			<fieldtext fieldName="prenom" label="Prénom" required="true" multiline="false" cols="50" maxlength="255" validators="blank:false;maxSize:255" />
+			<fieldtext fieldName="nom" label="Nom" required="true" multiline="false" cols="50" maxlength="255" validators="blank:false;maxSize:255" />
+			<fieldtext fieldName="societe" label="Société" required="false" multiline="false" cols="50" maxlength="255" validators="blank:false;maxSize:255" />
+			<fieldtext fieldName="fonction" label="Fonction" required="false" multiline="false" cols="50" maxlength="255" validators="maxSize:255" />
+			<fieldtext fieldName="telephone" label="Téléphone" required="false" multiline="false" cols="50" maxlength="20" validators="maxSize:20" />
+			<fieldtext fieldName="message" label="Message" required="true" multiline="true" cols="50" rows="10" maxlength="1000" validators="blank:false;maxSize:1000" />
+		</inquiryform>
+	</rootfolder>
+
+	<website byTag="default_modules_website_default-website" template="tplTwo">
+		<topic byLabel="Demandes d'informations">
+			<page label="Formulaire de demande" indexingstatus="true" isIndexPage="true" navigationVisibility="hidden">
+				<changecontent for="content-block">
+					<changeblock type="modules_inquiry_inquiryform" __cmpref-refid="inquiryform" />
+				</changecontent>
+			</page>
+			<page byLabel="Détail d'une demande" indexingstatus="false" navigationVisibility="hidden">
+				<tag name="contextual_website_website_modules_inquiry_inquiry" />
+				<changecontent for="content-block">
+					<changeblock type="modules_inquiry_inquiry" />
+				</changecontent>
+			</page>
+			<page label="Mes demandes" indexingstatus="true">
+				<tag name="contextual_website_website_modules_inquiry_inquirylist" />
+				<changecontent for="content-block">
+					<changeblock type="modules_inquiry_inquirylist" />
+				</changecontent>
+			</page>
+		</topic>
+	</website>
+</script>

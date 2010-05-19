@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localization>
+	<entity id="property.author">
+		<locale lang="fr">demandeur</locale>
+	</entity>
+	<entity id="property.form">
+		<locale lang="fr">formulaire d'origine</locale>
+	</entity>
+	<entity id="property.message-count">
+		<locale lang="fr">nombre de messages</locale>
+	</entity>
+	
+	<entity id="tab.messages">
+		<locale lang="fr">messagerie</locale>
+		<locale lang="en">messages</locale>
+	</entity>
+	
+	<entity id="section.messages">
+		<locale lang="fr">messagerie relative à cette demande</locale>
+		<locale lang="en">messages related to this inquiry</locale>
+	</entity>
+	<entity id="section.formdata">
+		<locale lang="fr">données soumises dans le formulaire</locale>
+		<locale lang="en">data sumitted in the form</locale>
+	</entity>
+	
+	<entity id="property.total-count">
+		<locale lang="fr">total des messages</locale>
+		<locale lang="en">total count</locale>
+	</entity>
+	<entity id="property.to-staff-message-count">
+		<locale lang="fr">messages envoyés à l'équipe du site</locale>
+		<locale lang="en">messages sent to website staff</locale>
+	</entity>
+	<entity id="property.from-staff-message-count">
+		<locale lang="fr">messages envoyés par le demandeur</locale>
+		<locale lang="en">messages sent by author</locale>
+	</entity>
+	<entity id="property.processing-status">
+		<locale lang="fr">statut</locale>
+	</entity>
+	
+	<entity id="panel.messages.title">
+		<locale lang="fr">envoyer un nouveau message</locale>
+		<locale lang="en">send new message</locale>
+	</entity>	
+	<entity id="panel.messages.send">
+		<locale lang="fr">envoyer</locale>
+		<locale lang="en">send</locale>
+	</entity>
+	<entity id="panel.messages.error-no-message-to-send">
+		<locale lang="fr">vous devez saisir un contenu à envoyer.</locale>
+		<locale lang="en">you must set a content to send.</locale>
+	</entity>
+	<entity id="panel.messages.error-not-receiver">
+		<locale lang="fr">vous n'êtes pas destinataire de cette demande.</locale>
+	</entity>
+	<entity id="panel.messages.error-task-not-for-you">
+		<locale lang="fr">vous n'êtes pas autorisé à exécuter cette tâche.</locale>
+	</entity>
+	<entity id="panel.messages.error-unknown-task-type">
+		<locale lang="fr">le type de cette tâche n'est pas reconnu.</locale>
+	</entity>
+	<entity id="panel.messages.success-sending-message">
+		<locale lang="fr">le message a bien été envoyé.</locale>
+		<locale lang="en">message successfully sent.</locale>
+	</entity>
+</localization>

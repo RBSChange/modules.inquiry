@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+	<binding fileName="modules/workflow/persistentdocument/import/workflow_binding.xml" />
+	<binding fileName="modules/notification/persistentdocument/import/notification_binding.xml" />
+
+	<rootfolder module="workflow">
+		<folder byLabel="Workflows de demandes">
+			<workflow label="Demande sans rappels" starttaskid="INQUIRY_DEFAULT">
+				<places>
+					<startplace id="pStart" label="Début" description="Début" />
+					<place id="p3" label="Attente de prise en compte" description="Attente de prise en compte" />
+					<place id="p4" label="Traitement terminé" description="Traitement terminé" />
+					<place id="p5" label="Attente de réponse du demandeur" description="Attente de réponse du demandeur" />
+					<place id="p6" label="Traitement en cours" description="Traitement en cours" />
+					<endplace id="pEnd" label="Fin" description="Fin" />
+				</places>
+				<transitions>
+					<transition id="t1" label="Initialisation" description="Initialisation" taskid="INQUIRY_DEFAULT" trigger="AUTO"
+						actionname="inquiry_InitWorkflowAction" />
+					<transition id="t2" label="Attendre une réponse" description="Prise en compte de la demande et attente d'une réponse du demandeur"
+						taskid="INQUIRY_DEFAULT" trigger="USER" actionname="inquiry_ResponseWorkflowAction" />
+					<transition id="t3" label="Clôture de la demande" description="Clôture de la demande" taskid="INQUIRY_DEFAULT" trigger="AUTO"
+						actionname="inquiry_CloseWorkflowAction" />
+					<transition id="t4" label="Attendre une réponse" description="Réponse d'un destinataire et attente d'une réponse du demandeur" taskid="INQUIRY_DEFAULT"
+						trigger="USER" actionname="inquiry_ResponseWorkflowAction" />
+					<transition id="t5" label="Attendre une réponse" description="Réponse du demandeur et attente d'une réponse d'un destinataire" taskid="AUTHOR_RESPONSE"
+						trigger="MSG" actionname="inquiry_ResponseWorkflowAction" />
+					<transition id="t6" label="Clôturer" description="Signaler comme traitée" taskid="CLOSE" trigger="MSG" actionname="inquiry_EndProcessWorkflowAction" />
+				</transitions>
+				<arcs>
+					<arc direction="IN" place-refid="pStart" transition-refid="t1" arctype="SEQ" />
+					<arc direction="IN" place-refid="p3" transition-refid="t2" arctype="IM_OR_SP" />
+					<arc direction="IN" place-refid="p3" transition-refid="t6" arctype="IM_OR_SP" />
+					<arc direction="IN" place-refid="p4" transition-refid="t3" arctype="SEQ" />
+					<arc direction="IN" place-refid="p5" transition-refid="t5" arctype="IM_OR_SP" />
+					<arc direction="IN" place-refid="p5" transition-refid="t6" arctype="IM_OR_SP" />
+					<arc direction="IN" place-refid="p6" transition-refid="t4" arctype="IM_OR_SP" />
+					<arc direction="IN" place-refid="p6" transition-refid="t6" arctype="IM_OR_SP" />
+					<arc direction="OUT" transition-refid="t1" place-refid="p3" arctype="SEQ" />
+					<arc direction="OUT" transition-refid="t2" place-refid="p5" arctype="SEQ" />
+					<arc direction="OUT" transition-refid="t3" place-refid="pEnd" arctype="SEQ" />
+					<arc direction="OUT" transition-refid="t4" place-refid="p5" arctype="SEQ" />
+					<arc direction="OUT" transition-refid="t5" place-refid="p6" arctype="SEQ" />
+					<arc direction="OUT" transition-refid="t6" place-refid="p4" arctype="SEQ" />
+				</arcs>
+			</workflow>
+		</folder>
+	</rootfolder>
+</script>

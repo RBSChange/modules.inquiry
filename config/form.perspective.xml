@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<perspective>
+	<models>
+		<updatemodel name="modules_generic/rootfolder">
+			<addchild model="modules_inquiry/inquiryform" />
+			<adddrop model="modules_inquiry/inquiryform" action="move" />
+			<addcontextaction name="createInquiryform" group="createfolder_" before="" />
+		</updatemodel>
+		<updatemodel name="modules_generic/folder">
+			<addchild model="modules_inquiry/inquiryform" />
+			<adddrop model="modules_inquiry/inquiryform" action="move" />
+			<addcontextaction name="createInquiryform" group="createfolder_" before="" />
+		</updatemodel>
+		<updatemodel name="modules_generic/systemfolder">
+			<addchild model="modules_inquiry/inquiryform" />
+		</updatemodel>
+		<model name="modules_inquiry/inquiryform">
+			<children>
+				<child model="modules_form/text" />
+				<child model="modules_form/mail" />
+				<child model="modules_form/boolean" />
+				<child model="modules_form/list" />
+				<child model="modules_form/group" />
+				<child model="modules_form/file" />
+				<child model="modules_form/hidden" />
+				<child model="modules_form/date" />
+				<child model="modules_form/password" />
+				<child model="modules_form/freecontent" />
+			</children>
+			<drops>
+				<drop model="modules_form/text" action="move" />
+				<drop model="modules_form/mail" action="move" />
+				<drop model="modules_form/boolean" action="move" />
+				<drop model="modules_form/list" action="move" />
+				<drop model="modules_form/group" action="move" />
+				<drop model="modules_form/file" action="move" />
+				<drop model="modules_form/hidden" action="move" />
+				<drop model="modules_form/date" action="move" />
+				<drop model="modules_form/password" action="move" />
+				<drop model="modules_form/freecontent" action="move" />
+			</drops>
+			<styles properties="fieldType required isLocked conditioned" />
+			<columns>
+				<column name="fieldType" label="FieldType" flex="2" />
+				<column name="fieldRequired" label="FieldRequired" flex="1" />
+				<column name="fieldConditioned" label="FieldConditioned" flex="1" />
+			</columns>
+			<contextactions>
+				<contextaction name="edit" />
+				<contextaction name="delete" />
+				<contextaction name="openTreeNodeOrder" />
+				<contextaction name="duplicate" />
+				<contextaction name="previewForm" />
+				<groupactions name="create_">
+					<contextaction name="createGroup" />
+					<contextaction name="createText" />
+					<contextaction name="createMail" />
+					<contextaction name="createBoolean" />
+					<contextaction name="createList" />
+					<contextaction name="createDate" />
+					<contextaction name="createFile" />
+					<contextaction name="createHidden" />
+					<contextaction name="createFreecontent" />
+				</groupactions>
+				<contextaction name="openFolder" />
+			</contextactions>
+		</model>
+	</models>
+	<actions>
+		<action name="createInquiryform" single="true" permission="Insert_inquiryform" icon="add" label="&amp;modules.inquiry.bo.actions.Create-inquiryform;" />
+	</actions>
+</perspective>

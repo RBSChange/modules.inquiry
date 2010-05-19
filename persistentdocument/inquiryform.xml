@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<document xmlns="http://www.rbs.fr/schema/change-document/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.rbs.fr/schema/change-document/1.0 http://www.rbschange.fr/static/schema/change-document/1.0.xsd" model-version="1.0"
+	icon="inquiry" publish-on-day-change="false" extend="modules_form/baseform">
+	<properties>
+		<add name="acknowledgment" default-value="true" />
+		<add name="startTaskId" type="String" min-occurs="1" default-value="INQUIRY_DEFAULT_RECALL" from-list="modules_workflow/existingstarttasks" />
+		<add name="secured" type="Boolean" default-value="true" />
+		<add name="inbox" type="String" />
+		<add name="receiver" type="modules_users/backenduser" min-occurs="1" max-occurs="-1" inverse="true" />
+		<add name="messageByAuthorNotification" type="modules_notification/notification" />
+		<add name="messageByReceiverNotification" type="modules_notification/notification" />
+		<add name="closeInquiryNotification" type="modules_notification/notification" />
+	</properties>
+</document>

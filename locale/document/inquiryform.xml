@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<localization extend="modules.form.document.baseform">
+	<entity id="document-name">
+		<locale lang="fr">formulaire de demande</locale>
+		<locale lang="en">inquiry form</locale>
+	</entity>
+	<entity id="startTaskId">
+		<locale lang="fr">tâche de workflow</locale>
+	</entity>
+	<entity id="startTaskId-help">
+		<locale lang="fr">cette tâche permet d'identifier le workflow à lancer pour chaque demande créée à partir de ce formulaire.</locale>
+	</entity>
+	<entity id="secured">
+		<locale lang="fr">sécurisé</locale>
+	</entity>
+	<entity id="secured-help">
+		<locale lang="fr">un formulaire sécurisé ne pourra être rempli que par des utilisateurs authentifiés.</locale>
+	</entity>
+	<entity id="inbox">
+		<locale lang="fr">boite de réception</locale>
+	</entity>
+	<entity id="inbox-help">
+		<locale lang="fr">dossier du module "demandes" où seront enregistrées les nouvelles demandes. Si laissé vide, les demandes seront enrigistrées à la racine du module.</locale>
+	</entity>
+	<entity id="receiver">
+		<locale lang="fr">destinataires</locale>
+	</entity>
+	<entity id="receiver-help">
+		<locale lang="fr">ensemble des groupes et/ou utilisateurs habilités à répondre aux demandes en provenance de ce formulaire.</locale>
+	</entity>
+	<entity id="messagebyauthornotification">
+		<locale lang="fr">nouveau message du demandeur</locale>
+	</entity>
+	<entity id="messagebyauthornotification-help">
+		<locale lang="fr">notification envoyée lorsque le demandeur envoie un nouveau message.</locale>
+	</entity>
+	<entity id="messagebyreceivernotification">
+		<locale lang="fr">nouveau message d'un destinataire</locale>
+	</entity>
+	<entity id="messagebyreceivernotification-help">
+		<locale lang="fr">notification envoyée lorsque l'un des destinataire envoie un nouveau message.</locale>
+	</entity>
+	<entity id="closeinquirynotification">
+		<locale lang="fr">clôture de la demande</locale>
+	</entity>
+	<entity id="closeinquirynotification-help">
+		<locale lang="fr">notification envoyée lors de la clôture de la demande.</locale>
+	</entity>
+	
+	<entity id="publication.no-published-receiver">
+		<locale lang="fr">un formulaire de demande doit avoir au moins un destinataire actif pour être publiable</locale>
+	</entity>
+	<entity id="publication.no-published-workflow">
+		<locale lang="fr">le workflow de traitement des demandes sélectionné doit être actif pour qu'un formulaire de demande soit publiable</locale>
+	</entity>
+</localization>

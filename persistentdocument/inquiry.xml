@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<document xmlns="http://www.rbs.fr/schema/change-document/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.rbs.fr/schema/change-document/1.0 http://www.rbschange.fr/static/schema/change-document/1.0.xsd" model-version="1.0"
+	icon="inquiry" linked-to-root-module="true" publish-on-day-change="false">
+	<properties>
+		<add name="formId" type="Integer" min-occurs="1" />
+		<add name="startTaskId" type="String" min-occurs="1" />
+		<add name="tagetId" type="Integer" />
+		<add name="receiver" type="modules_users/user" max-occurs="-1" />
+		<add name="authorEmail" type="String" min-occurs="1">
+			<constraints>email:true</constraints>
+		</add>
+		<add name="responseData" type="Lob" />
+		<add name="password" type="String" />
+		<add name="websiteId" type="Integer" min-occurs="1" />
+		<add name="processingStatus" type="String" default-value="new" from-list="modules_inquiry/processingstatuses" />
+	</properties>
+	<statuses default="ACTIVE" />
+</document>

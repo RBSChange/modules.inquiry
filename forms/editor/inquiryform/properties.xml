@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel>
+	<section labeli18n="modules.form.bo.general.General">
+		<field name="label" />
+		<field name="secured" />
+		<field name="useBackLink" />
+		<field name="confirmMessage" />
+		<field name="useCaptcha" />
+		<field name="markup" />
+	</section>
+	<section labeli18n="modules.form.bo.general.Advanced">
+		<field name="submitButton" />
+		<field name="description" />
+		<field name="footer" />
+		<field name="confirmpage" />
+	</section>
+	<section labeli18n="modules.form.bo.general.Sent-email">
+		<field name="acknowledgment" />
+	</section>
+	<section labeli18n="modules.inquiry.bo.general.Inquiries-creation">
+		<field name="startTaskId" />
+		<field name="receiver" moduleselector="users" allow="modules_users_backenduser,modules_users_backendgroup" />
+		<field name="inbox" />
+	</section>
+	<section labeli18n="modules.inquiry.bo.general.Notifications">
+		<field name="messageByAuthorNotification" />
+		<field name="messageByReceiverNotification" />
+		<field name="closeInquiryNotification" />
+	</section>
+</panel>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<localization>
+	<entity id="inquiryform.title">
+		<locale lang="fr">détail d'un formulaire de demande</locale>
+	</entity>
+	<entity id="inquiry.title">
+		<locale lang="fr">détail d'une demande</locale>
+	</entity>
+	<entity id="inquiry.nbitemperpage">
+		<locale lang="fr">messages par page</locale>
+	</entity>
+	<entity id="inquiry.nbitemperpage-help">
+		<locale lang="fr">nombre de messages par page.</locale>
+	</entity>
+	<entity id="inquirylist.title">
+		<locale lang="fr">mes demandes</locale>
+	</entity>
+	<entity id="inquirylist.nbitemperpage">
+		<locale lang="fr">demandes par page</locale>
+	</entity>
+	<entity id="inquirylist.nbitemperpage-help">
+		<locale lang="fr">nombre de demandes par page.</locale>
+	</entity>
+</localization>

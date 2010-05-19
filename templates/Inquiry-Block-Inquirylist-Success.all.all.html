@@ -1,0 +1,13 @@
+<h2 change:h="" change:translate="&modules.inquiry.frontoffice.Inquiry-list"></h2>
+
+<ul tal:condition="inquiries" class="normal">
+	<tal:block tal:repeat="inquiry inquiries">
+		<li>
+			[${inquiry/getProcessingStatusLabelAsHtml}] <a change:link="document inquiry">${inquiry/getLabel}</a> - <tal:block change:datetime="inquiry/getCreationdate" /> 
+		</li>	
+	</tal:block>
+</ul>
+
+<tal:block change:paginator="inquiries"/>
+
+<p tal:condition="not: inquiries" change:translate="modules.inquiry.frontoffice.No-inquiries" />

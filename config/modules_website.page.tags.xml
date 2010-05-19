@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tags>
+	<tag label="&amp;modules.inquiry.bo.tags.inquiry-block;" icon="inquiry">contextual_website_website_modules_inquiry_inquiry</tag>
+	<tag label="&amp;modules.inquiry.bo.tags.inquirylist-block;" icon="list-block">contextual_website_website_modules_inquiry_inquirylist</tag>
+</tags>

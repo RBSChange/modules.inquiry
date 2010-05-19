@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+	<binding fileName="modules/list/persistentdocument/import/list_binding.xml" />
+	<binding fileName="modules/inquiry/persistentdocument/import/inquiry_binding.xml" />
+
+	<systemfolder module="list" relatedmodule="form">
+		<staticlist listid="modules_inquiry/processingstatuses" label="Statuts des demandes"
+			description="Liste des statuts de traitement des demandes.">
+			<staticitem label="Attente de prise en compte" value="new" />
+			<staticitem label="Traitement en cours" value="processing" />
+			<staticitem label="Attente de réponse du demandeur" value="waitingauthor" />
+			<staticitem label="Clôturée" value="closed" />
+		</staticlist>
+	</systemfolder>
+</script>

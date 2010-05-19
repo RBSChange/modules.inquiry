@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<localization>
+  <entity id="inquiry-block">
+    <locale lang="fr">détail d'une demande</locale>
+  </entity>
+  <entity id="inquirylist-block">
+    <locale lang="fr">bloc inquirylist</locale>
+    <locale lang="en">inquirylist block</locale>
+  </entity>
+</localization>

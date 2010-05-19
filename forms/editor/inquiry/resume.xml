@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<panel>
+	<section name="properties" linkedtab="properties" labeli18n="modules.uixul.bo.doceditor.section.Properties" image="{IconsBase}/small/edit-properties.png">
+		<property name="label" labeli18n="modules.uixul.bo.doceditor.property.Label" />
+		<property name="author" labeli18n="modules.inquiry.bo.doceditor.property.Author" class="openactionuri" />
+		<property name="authoremail" labeli18n="modules.inquiry.bo.doceditor.property.Author" />
+		<property name="creationdate" labeli18n="modules.uixul.bo.doceditor.property.Creationdate" />
+		<property name="processingStatus" labeli18n="modules.inquiry.bo.doceditor.property.Processing-status" />
+		<property name="form" labeli18n="modules.inquiry.bo.doceditor.property.Form" class="openactionuri" />
+	</section>
+	<section name="formdata" labeli18n="modules.inquiry.bo.doceditor.section.Formdata" image="{IconsBase}/small/form.png" />
+	<section name="messages" linkedtab="messages" actiontexti18n="modules.uixul.bo.doceditor.section.action.View"
+		labeli18n="modules.inquiry.bo.doceditor.section.Messages" image="{IconsBase}/small/mail.png">
+		<property name="totalCount" labeli18n="modules.inquiry.bo.doceditor.property.Total-count"/>
+		<property name="toStaffCount" labeli18n="modules.inquiry.bo.doceditor.property.To-staff-message-count"/>
+		<property name="fromStaffCount" labeli18n="modules.inquiry.bo.doceditor.property.From-staff-message-count"/>
+	</section>	
+	<section name="history" linkedtab="history" actiontexti18n="modules.uixul.bo.doceditor.section.action.View" labeli18n="modules.uixul.bo.doceditor.section.History"
+		image="{IconsBase}/small/history.png">
+		<property name="modificationdate" labeli18n="modules.uixul.bo.doceditor.property.Modificationdate" />
+	</section>
+</panel>

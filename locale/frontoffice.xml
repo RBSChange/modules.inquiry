@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localization>
+	<entity id="error-sending-message">
+		<locale lang="fr">une erreur est survenue lors de l'envoi de votre message. Veuillez le saisir à nouveau.</locale>
+		<locale lang="en">an error occurred while sending your message. Please enter it again.</locale>
+		<locale lang="de">ein Fehler beim Versenden Ihrer Nachricht. Bitte geben Sie es erneut.</locale>
+	</entity>
+	<entity id="success-sending-message">
+		<locale lang="fr">votre message a bien été envoyé.</locale>
+		<locale lang="en">Your message has been sent.</locale>
+		<locale lang="de">Ihre Nachricht wurde gesendet.</locale>
+	</entity>
+	<entity id="message-sent-by-author">
+		<locale lang="fr">message du demandeur</locale>
+	</entity>
+	<entity id="message-sent-by-staff">
+		<locale lang="fr">message d'un destinataire</locale>
+	</entity>
+	<entity id="messages-for-inquiry">
+		<locale lang="fr">messages relatifs à cette demande</locale>
+	</entity>
+	<entity id="write-messages-for-inquiry">
+		<locale lang="fr">envoyer un message relatif à cette demande</locale>
+	</entity>
+	<entity id="your-message">
+		<locale lang="fr">votre message</locale>
+		<locale lang="en">your message</locale>
+		<locale lang="de">Ihre Nachricht</locale>
+	</entity>
+	<entity id="no-message-for-this-inquiry">
+		<locale lang="fr">il n'y a encore aucun message pour cette demande.</locale>
+	</entity>
+	<entity id="inquiry-data">
+		<locale lang="fr">données soumises avec la demande</locale>
+	</entity>
+	<entity id="send">
+		<locale lang="fr">envoyer</locale>
+	</entity>
+	<entity id="preview">
+		<locale lang="fr">prévisualiser</locale>
+	</entity>
+	<entity id="close">
+		<locale lang="fr">clôturer</locale>
+	</entity>
+	<entity id="message-preview">
+		<locale lang="fr">prévisualisation du message</locale>
+	</entity>
+	<entity id="message-edition">
+		<locale lang="fr">édition du message</locale>
+	</entity>
+	<entity id="inquiry-list">
+		<locale lang="fr">mes demandes</locale>
+	</entity>
+	<entity id="author-login">
+		<locale lang="fr">Vous êtes l'auteur de cette demande ?</locale>
+	</entity>
+	<entity id="receiver-login">
+		<locale lang="fr">Vous êtes un destinataire de cette demande ?</locale>
+	</entity>
+	<entity id="no-new-message-on-closed-inquiries">
+		<locale lang="fr">Aucun message ne peut être envoyé sur une demande clôturée.</locale>
+	</entity>
+	<entity id="inquiry-date">
+		<locale lang="fr">date de création</locale>
+	</entity>
+	<entity id="inquiry-status">
+		<locale lang="fr">statut</locale>
+	</entity>
+	<entity id="error-no-contents">
+		<locale lang="fr">vous devez saisir un message.</locale>
+	</entity>
+</localization>

@@ -1,0 +1,12 @@
+cdocumenteditor#edt_inquiry_inquiry cmessagespanel{
+	-moz-binding: url(binding:modules.inquiry.cInquiryEditor#cMessagesPanel);
+}
+cdocumenteditor#edt_inquiry_inquiry cmessagespanel section.message{
+	-moz-binding: url(binding:modules.inquiry.cInquiryEditor#messageSection);
+}
+cdocumenteditor#edt_inquiry_inquiry cresumesection[sectionname="formdata"]{
+	-moz-binding: url(binding:modules.inquiry.cInquiryEditor#cFormDataResumeSection);
+}
+wdialog[template="Response"]{
+	-moz-binding: url(binding:modules.inquiry.cInquiryEditor#cResponseDialog);
+}
