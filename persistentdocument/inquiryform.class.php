@@ -5,4 +5,13 @@
  */
 class inquiry_persistentdocument_inquiryform extends inquiry_persistentdocument_inquiryformbase 
 {
+	/**
+	 * @return indexer_IndexedDocument
+	 */
+	public function getBackofficeIndexedDocument()
+	{
+		$indexedDoc = parent::getBackofficeIndexedDocument();
+		$indexedDoc->setStringField('module', 'form');
+		return $indexedDoc;
+	}
 }
