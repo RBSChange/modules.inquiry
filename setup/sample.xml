@@ -44,7 +44,7 @@
 		</inquiryform>
 	</rootfolder>
 
-	<website byTag="default_modules_website_default-website" template="tplTwo">
+	<website byTag="default_modules_website_default-website" template="webfactory/tplTwo">
 		<topic byLabel="Demandes d'informations">
 			<page label="Formulaire de demande" indexingstatus="true" isIndexPage="true" navigationVisibility="hidden">
 				<changecontent for="content-block">
