@@ -198,6 +198,7 @@ class inquiry_InquiryformService extends form_BaseformService
 		$field->setRequired(true);
 		$field->setIsLocked(true);
 		$field->setUseAsReply(true);
+		$field->setInitializeWithCurrentUserEmail(true);
 		$field->setAcknowledgmentReceiver(true);
 		$field->save($document->getId());
 	}

@@ -200,7 +200,7 @@
 						<xul:row>
 							<xul:label value="&amp;modules.inquiry.document.message.Contents;" />
 							<xul:hbox flex="1">
-								<html:div flex="1" anonid="contents"><xbl:children /></html:div>
+								<html:div flex="1" anonid="contents" style="-moz-user-select: text; -moz-user-focus: normal"><xbl:children /></html:div>
 							</xul:hbox>
 						</xul:row>
 					</xul:rows>
