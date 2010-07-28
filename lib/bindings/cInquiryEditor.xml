@@ -219,33 +219,28 @@
 					var sectionValues = values[this.name];
 					if (sectionValues)
 					{
-						wCore.debug('[cFormDataResumeSection] OK');
 						var section;
 						var i = 0;
+						while (section = this.childNodes[0])
+						{
+							this.removeChild(section);
+						}
 						for (var fieldname in sectionValues)
 						{
-							wCore.debug('[cFormDataResumeSection] fieldname = '+fieldname);
-							section = this.childNodes[i];
-							i++;
-							if (section == null)
+							var values = sectionValues[fieldname];
+							section = document.createElementNS('http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul', 'xul:cproperty');
+							if ('class' in values)
 							{
-								section = document.createElementNS('http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul', 'xul:cproperty');
-								this.appendChild(section);
+								section.className = values.class;
 							}
 							else
 							{
-								section.removeAttribute('collapsed');
+								section.className = 'multiline';
 							}
 							section.setAttribute('name', fieldname);
-							wCore.debug('[cFormDataResumeSection] label = '+sectionValues[fieldname]['label']);
-							section.setAttribute('label', sectionValues[fieldname]['label']);
-							wCore.debug('[cFormDataResumeSection] value = '+sectionValues[fieldname]['value']);
-							section.setAttribute('value', sectionValues[fieldname]['value']);
-						}
-						while (section = this.childNodes[i])
-						{
-							section.setAttribute('collapsed', 'true');
-							i++;
+							section.setAttribute('label', values.label);
+							this.appendChild(section);
+							section.setValue(values.value);
 						}
 					}		
 				]]></body>
@@ -253,12 +248,42 @@
 		</implementation>
 	</binding>
 	
+	<binding id="cMultilineProperty">
+		<content>
+			<xul:hbox>
+				<xul:label class="label" xbl:inherits="value=label" />
+				<xul:label class="label separator" value=":" />
+				<xul:description style="-moz-user-select: text; -moz-user-focus: normal; white-space: pre"><xbl:children /></xul:description>
+			</xul:hbox>			
+		</content>
+		<implementation>
+			<method name="setValue">
+				<parameter name="val" />
+				<body><![CDATA[
+					if (val)
+					{
+						this.appendChild(document.createTextNode(val.replace(/<br \/>/g, '')));
+						this.removeAttribute('hidden');
+					}
+					else
+					{
+						while (child = this.childNodes[0])
+						{
+							this.removeChild(child);
+						}
+						this.setAttribute('hidden', 'true');
+					}
+				]]></body>
+			</method>
+		</implementation>				
+	</binding>
+	
 	<!-- Inquiry validation panel. -->
 	
 	<binding id="cResponseDialog" extends="core.wDialog#wDialog">
 		<implementation>
 			<constructor><![CDATA[
-				wCore.debug('cResponseDialog.constructor');	
+				//wCore.debug('cResponseDialog.constructor');	
 			]]></constructor>
 
 			<method name="onInitialize">

@@ -4,30 +4,6 @@
 		<locale lang="fr">demande</locale>
 		<locale lang="en">inquiry</locale>
 	</entity>
-	<entity id="label">
-		<locale lang="fr">[TO TRANSLATE] label</locale>
-		<locale lang="en">[TO TRANSLATE] label</locale>
-	</entity>
-	<entity id="label-help">
-		<locale lang="fr">[TO TRANSLATE] label-help</locale>
-		<locale lang="en">[TO TRANSLATE] label-help</locale>
-	</entity>
-	<entity id="form">
-		<locale lang="fr">[TO TRANSLATE] form</locale>
-		<locale lang="en">[TO TRANSLATE] form</locale>
-	</entity>
-	<entity id="form-help">
-		<locale lang="fr">[TO TRANSLATE] form-help</locale>
-		<locale lang="en">[TO TRANSLATE] form-help</locale>
-	</entity>
-	<entity id="authorEmail">
-		<locale lang="fr">[TO TRANSLATE] authorEmail</locale>
-		<locale lang="en">[TO TRANSLATE] authorEmail</locale>
-	</entity>
-	<entity id="authorEmail-help">
-		<locale lang="fr">[TO TRANSLATE] authorEmail-help</locale>
-		<locale lang="en">[TO TRANSLATE] authorEmail-help</locale>
-	</entity>
 	<entity id="label-template">
 		<locale lang="fr">demande n°{id}</locale>
 	</entity>

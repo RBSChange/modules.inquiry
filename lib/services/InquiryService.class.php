@@ -107,7 +107,7 @@ class inquiry_InquiryService extends f_persistentdocument_DocumentService
 	 * @param Integer $parentNodeId Parent node ID where to save the document.
 	 * @return void
 	 */
-	protected function postInsert($document, $parentNodeId = null)
+	protected function postInsert($document, $parentNodeId)
 	{
 		if ($document->getLabel() === 'temporary-label')
 		{
@@ -179,6 +179,29 @@ class inquiry_InquiryService extends f_persistentdocument_DocumentService
 			{
 				$field['value'] = '-';
 			}
+			else if (isset($field['isFile']) && $field['isFile'] == 'true')
+			{
+				try 
+				{
+					$file = DocumentHelper::getDocumentInstance($field['value']);
+					$href = LinkHelper::getUIActionLink('media', 'BoDisplay')->setQueryParameter('cmpref', $field['value'])
+							->setQueryParameter('lang', $file->getI18nInfo()->getVo())->setQueryParameter('forceDownload', 'true')->getUrl();
+					$field['class'] = 'downloadlink';
+					$field['value'] = array(
+						'href' => $href,
+						'label' => $file->getLabel()
+					);
+				}
+				catch (Exception $e)
+				{
+					$e; // Avoid Eclipse warning...
+					$field['value'] = f_Locale::translateUI('&modules.form.bo.general.Unexisting-file;', array('id' => $field['value']));
+				}
+			}
+			else if (isset($field['mailValue']))
+			{
+				$field['value'] = $field['mailValue'];
+			}
 			$resume['formdata'][] = $field;
 		}
 		
@@ -212,6 +235,7 @@ class inquiry_InquiryService extends f_persistentdocument_DocumentService
 			catch (Exception $e)
 			{
 				// User doesn't exist any more...
+				$e; // Avoid Eclipse warning...
 			}
 		}
 		return null;

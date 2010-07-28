@@ -1,9 +1,5 @@
 <?php
-/**
- * Class where to put your custom methods for document inquiry_persistentdocument_inquiry
- * @package modules.inquiry.persistentdocument
- */
-class inquiry_persistentdocument_inquiry extends inquiry_persistentdocument_inquirybase
+class inquiry_persistentdocument_inquiry extends inquiry_persistentdocument_inquirybase implements form_Response
 {
 	/**
 	 * @return users_persistentdocument_websitefrontenduser | null
@@ -63,6 +59,7 @@ class inquiry_persistentdocument_inquiry extends inquiry_persistentdocument_inqu
 	}
 	
 	/**
+	 * @param string $key
 	 * @return string | null
 	 */
 	public function getResponseFieldValue($key)
@@ -76,6 +73,7 @@ class inquiry_persistentdocument_inquiry extends inquiry_persistentdocument_inqu
 	}
 	
 	/**
+	 * @param string $key
 	 * @return string | null
 	 */
 	public function getResponseFieldLabel($key)
@@ -89,6 +87,7 @@ class inquiry_persistentdocument_inquiry extends inquiry_persistentdocument_inqu
 	}
 	
 	/**
+	 * @param string $key
 	 * @return string | null
 	 */
 	public function getResponseFieldType($key)
@@ -151,5 +150,13 @@ class inquiry_persistentdocument_inquiry extends inquiry_persistentdocument_inqu
 	public function getMessageByReceiverNotification()
 	{
 		return $this->getDocumentService()->getNotification($this, 'MESSAGE_BY_RECEIVER_NOTIFICATION_CODE');
+	}
+	
+	/**
+	 * @return string
+	 */
+	public function getBoEditorModule()
+	{
+		return 'inquiry';
 	}
 }
