@@ -25,7 +25,7 @@ class inquiry_persistentdocument_message extends inquiry_persistentdocument_mess
 	{
 		if (defined('DEFAULT_TIMEZONE'))
 		{
-			date_default_timezone_set(DEFAULT_TIMEZONE);        
+			date_default_timezone_set(DEFAULT_TIMEZONE);
 		}
 		$offset = intval(date('Z'));
 		$creationDate = date_Calendar::getInstance($this->getCreationdate());
@@ -40,15 +40,19 @@ class inquiry_persistentdocument_message extends inquiry_persistentdocument_mess
 	{
 		if ($this->getAuthorid())
 		{
-			try 
+			try
 			{
 				return DocumentHelper::getDocumentInstance($this->getAuthorid());
 			}
 			catch (Exception $e)
 			{
-				// The author doesn't exist any more...
+				if (Framework::isDebugEnabled())
+				{
+					Framework::debug(__METHOD__ . ' ' . $e->getMessage());
+				}
 			}
 		}
+		// The author doesn't exist any more...
 		return null;
 	}
 	

@@ -43,7 +43,7 @@ class inquiry_SendMessageAction extends f_action_BaseJSONAction
 							
 							case 'MSG':
 								$taskFound = false;
-								foreach ($target->getDocumentService()->getMessageTasksForReceiver($target) as $thisTaskId => $thisTaskLabel)
+								foreach (array_keys($target->getDocumentService()->getMessageTasksForReceiver($target)) as $thisTaskId)
 								{
 									if ($taskId == $thisTaskId)
 									{

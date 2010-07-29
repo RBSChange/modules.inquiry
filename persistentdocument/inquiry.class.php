@@ -8,21 +8,25 @@ class inquiry_persistentdocument_inquiry extends inquiry_persistentdocument_inqu
 	{
 		return $this->getDocumentService()->getAuthorDocument($this);
 	}
-
+	
 	/**
 	 * @return inquiry_persistentdocument_inquiryform
 	 */
 	public function getForm()
 	{
-		try 
+		try
 		{
 			return DocumentHelper::getDocumentInstance($this->getFormId());
 		}
 		catch (Exception $e)
 		{
-			// The form doesn't exist any more.
-			return null;
+			if (Framework::isDebugEnabled())
+			{
+				Framework::debug(__METHOD__ . ' ' . $e->getMessage());
+			}
 		}
+		// The form doesn't exist any more.
+		return null;
 	}
 	
 	/**
@@ -106,7 +110,7 @@ class inquiry_persistentdocument_inquiry extends inquiry_persistentdocument_inqu
 	public function isClosed()
 	{
 		return $this->getProcessingStatus() == 'closed';
-	}	
+	}
 	
 	/**
 	 * @return string
