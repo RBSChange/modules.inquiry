@@ -69,4 +69,7 @@
 	<entity id="error-no-contents">
 		<locale lang="fr">vous devez saisir un message.</locale>
 	</entity>
+	<entity id="error-secured-form">
+		<locale lang="fr">Ce formulaire de demande n'est accessible qu'aux utilisateurs enregistrés.</locale>
+	</entity>
 </localization>
