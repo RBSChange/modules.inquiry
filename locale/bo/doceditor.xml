@@ -19,10 +19,6 @@
 		<locale lang="fr">messagerie relative à cette demande</locale>
 		<locale lang="en">messages related to this inquiry</locale>
 	</entity>
-	<entity id="section.formdata">
-		<locale lang="fr">données soumises dans le formulaire</locale>
-		<locale lang="en">data sumitted in the form</locale>
-	</entity>
 	
 	<entity id="property.total-count">
 		<locale lang="fr">total des messages</locale>

@@ -172,42 +172,81 @@ class inquiry_InquiryService extends f_persistentdocument_DocumentService
 			unset($resume['properties']['author']);
 		}
 		
-		$resume['formdata'] = array();
-		foreach ($document->getResponseData() as $field)
-		{
-			if (!$field['value'])
-			{
-				$field['value'] = '-';
-			}
-			else if (isset($field['isFile']) && $field['isFile'] == 'true')
-			{
-				try 
-				{
-					$file = DocumentHelper::getDocumentInstance($field['value']);
-					$href = LinkHelper::getUIActionLink('media', 'BoDisplay')->setQueryParameter('cmpref', $field['value'])
-							->setQueryParameter('lang', $file->getI18nInfo()->getVo())->setQueryParameter('forceDownload', 'true')->getUrl();
-					$field['class'] = 'downloadlink';
-					$field['value'] = array(
-						'href' => $href,
-						'label' => $file->getLabel()
-					);
-				}
-				catch (Exception $e)
-				{
-					$e; // Avoid Eclipse warning...
-					$field['value'] = f_Locale::translateUI('&modules.form.bo.general.Unexisting-file;', array('id' => $field['value']));
-				}
-			}
-			else if (isset($field['mailValue']))
-			{
-				$field['value'] = $field['mailValue'];
-			}
-			$resume['formdata'][] = $field;
-		}
-		
+		$i = 0;
+		$resume['responsedata'] = array();
+		$resume['responsedata']['contents'] = $this->getResponseContents($i, array_values($document->getResponseData()), 0, null);
+				
 		$resume['messages'] = inquiry_MessageService::getInstance()->getInfosByTargetId($document->getId());
 		
 		return $resume;
+	}
+	
+	/**
+	 * @param integer $i
+	 * @param array $responseData
+	 * @param integer $level
+	 * @param string $groupName
+	 * @return array
+	 */
+	private function getResponseContents(&$i, $responseData, $level, $groupName)
+	{	
+		$contents = array();
+		while ($i < count($responseData))
+		{
+			$row = $responseData[$i];
+			$nodeLevel = isset($row['level']) ? $row['level'] : null;
+			$nodeGroupName = isset($row['groupName']) ? $row['groupName'] : null;
+			if ($nodeLevel > $level)
+			{
+				$contents[] = array(
+					'isGroup' => true, 
+					'label' => $nodeGroupName, 
+					'contents' => $this->getResponseContents($i, $responseData, $nodeLevel, $nodeGroupName)
+				);
+			}
+			else if ($level < $nodeLevel || $groupName != $nodeGroupName)
+			{
+				return $contents;
+			}
+			else 
+			{
+				$contents[] = $this->getFieldInfos($row);
+			}
+			$i++;
+		}
+		return $contents;
+	}
+	
+	/**
+	 * @param array $row
+	 * @return array
+	 */
+	private function getFieldInfos($row)
+	{
+		$value = htmlspecialchars($row['value']);
+		$infos = array(
+			'isGroup' => false,
+			'label' => $row['label'],
+			'mailValue' => isset($row['mailValue']) ? $row['mailValue'] : $value,
+			'value' => $value
+		);
+		if ($value && isset($row['isFile']) && $row['isFile'] == 'true')
+		{
+			try 
+			{
+				$file = DocumentHelper::getDocumentInstance($value);
+				$infos['isFile'] = true;
+				$infos['href'] = LinkHelper::getUIActionLink('media', 'BoDisplay')->setQueryParameter('cmpref', $value)
+					->setQueryParameter('lang', $file->getI18nInfo()->getVo())->setQueryParameter('forceDownload', 'true')->getUrl();
+				$infos['linklabel'] = $file->getLabel();
+			}
+			catch (Exception $e)
+			{
+				$e; // Avoid Eclipse warning...
+				$infos['mailValue'] = f_Locale::translateUI('&modules.form.bo.general.Unexisting-file;', array('id' => $value));
+			}
+		}
+		return $infos;
 	}
 	
 	/**

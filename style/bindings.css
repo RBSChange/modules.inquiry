@@ -4,15 +4,9 @@ cdocumenteditor#edt_inquiry_inquiry cmessagespanel{
 cdocumenteditor#edt_inquiry_inquiry cmessagespanel section.message{
 	-moz-binding: url(binding:modules.inquiry.cInquiryEditor#messageSection);
 }
-cdocumenteditor#edt_inquiry_inquiry cresumesection[sectionname="formdata"]{
-	-moz-binding: url(binding:modules.inquiry.cInquiryEditor#cFormDataResumeSection);
-}
-cdocumenteditor#edt_inquiry_inquiry cresumesection[sectionname="formdata"] cproperty.multiline{
-	-moz-binding: url(binding:modules.inquiry.cInquiryEditor#cMultilineProperty);
-}
-cdocumenteditor#edt_inquiry_inquiry cresumesection[sectionname="formdata"] section[isFile="true"]{
-	-moz-binding: url(binding:modules.inquiry.cInquiryEditor#cFormDataFileSection);
-}
 wdialog[template="Response"]{
 	-moz-binding: url(binding:modules.inquiry.cInquiryEditor#cResponseDialog);
+}
+cdocumenteditor#edt_inquiry_inquiry cresumesection[sectionname="responsedata"]{
+	-moz-binding: url(binding:modules.form.cFormEditor#cResponseDataResumeSection);
 }
