@@ -219,7 +219,7 @@
 
 			<method name="onInitialize">
 				<body><![CDATA[
-					this.resizeTo(400, 120);
+					this.autoResize(600, 120);
 				]]></body>
 			</method>
 
