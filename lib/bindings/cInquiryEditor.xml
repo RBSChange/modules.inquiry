@@ -191,16 +191,16 @@
 					<xul:rows>
 						<xul:row>
 							<xul:label value="&amp;modules.inquiry.document.message.Creationdate;" />
-							<xul:label xbl:inherits="value=date" />
+							<xul:label class="allow-text-selection" xbl:inherits="xbl:text=date" />
 						</xul:row>
 						<xul:row>
 							<xul:label value="&amp;modules.inquiry.document.message.Sender;" />
-							<xul:label xbl:inherits="value=authorFullName" />
+							<xul:label class="allow-text-selection" xbl:inherits="xbl:text=authorFullName" />
 						</xul:row>
 						<xul:row>
 							<xul:label value="&amp;modules.inquiry.document.message.Contents;" />
 							<xul:hbox flex="1">
-								<html:div flex="1" anonid="contents" style="-moz-user-select: text; -moz-user-focus: normal"><xbl:children /></html:div>
+								<html:div flex="1" anonid="contents" class="allow-text-selection"><xbl:children /></html:div>
 							</xul:hbox>
 						</xul:row>
 					</xul:rows>
