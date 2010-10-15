@@ -192,15 +192,18 @@ class inquiry_InquiryformService extends form_BaseformService
 		parent::postInsert($document, $parentNodeId);
 		
 		// Initialize the email field.
-		$field = form_MailService::getInstance()->getNewDocumentInstance();
-		$field->setLabel(f_Locale::translate('&modules.inquiry.bo.general.Default-mail-label;'));
-		$field->setFieldName('email');
-		$field->setRequired(true);
-		$field->setIsLocked(true);
-		$field->setUseAsReply(true);
-		$field->setInitializeWithCurrentUserEmail(true);
-		$field->setAcknowledgmentReceiver(true);
-		$field->save($document->getId());
+		if (!$document->getIsDuplicating())
+		{
+			$field = form_MailService::getInstance()->getNewDocumentInstance();
+			$field->setLabel(f_Locale::translate('&modules.inquiry.bo.general.Default-mail-label;'));
+			$field->setFieldName('email');
+			$field->setRequired(true);
+			$field->setIsLocked(true);
+			$field->setUseAsReply(true);
+			$field->setInitializeWithCurrentUserEmail(true);
+			$field->setAcknowledgmentReceiver(true);
+			$field->save($document->getId());
+		}
 	}
 
 	/**
