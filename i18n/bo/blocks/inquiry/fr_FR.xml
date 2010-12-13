@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.inquiry.bo.blocks.inquiry" lcid="fr_FR">
+  <key id="title">détail d'une demande</key>
+  <key id="nbitemperpage">messages par page</key>
+  <key id="nbitemperpage-help">nombre de messages par page.</key>
+</i18n>

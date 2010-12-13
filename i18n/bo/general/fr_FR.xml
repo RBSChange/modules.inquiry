@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.inquiry.bo.general" lcid="fr_FR">
+  <key id="module-name">demande</key>
+  <key id="tree-root-name">demande</key>
+  <key id="system-folder-name">demande</key>
+  <key id="inquiries-creation">création des demandes</key>
+  <key id="default-mail-label">votre adresse e-mail</key>
+  <key id="notifications">notifications</key>
+  <key id="inquiry-response-title">répondre à une demande</key>
+  <key id="open-inquiry-help">la réponse à une demande se fait depuis l'onglet ″messages″ du formulaire d'édition d'une demande.</key>
+  <key id="open-inquiry">ouvrir la demande</key>
+</i18n>

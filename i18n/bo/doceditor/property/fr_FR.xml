@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.inquiry.bo.doceditor.property" lcid="fr_FR">
+  <key id="author">demandeur</key>
+  <key id="form">formulaire d'origine</key>
+  <key id="message-count">nombre de messages</key>
+  <key id="total-count">total des messages</key>
+  <key id="to-staff-message-count">messages envoyés à l'équipe du site</key>
+  <key id="from-staff-message-count">messages envoyés par le demandeur</key>
+  <key id="processing-status">statut</key>
+</i18n>

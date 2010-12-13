@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.inquiry.document.inquiryform.publication" lcid="fr_FR">
+  <include id="m.form.document.baseform"/>
+  <key id="no-published-receiver">un formulaire de demande doit avoir au moins un destinataire actif pour être publiable</key>
+  <key id="no-published-workflow">le workflow de traitement des demandes sélectionné doit être actif pour qu'un formulaire de demande soit publiable</key>
+</i18n>

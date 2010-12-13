@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.inquiry.bo.doceditor.panel.messages" lcid="fr_FR">
+  <key id="title">envoyer un nouveau message</key>
+  <key id="send">envoyer</key>
+  <key id="error-no-message-to-send">vous devez saisir un contenu à envoyer.</key>
+  <key id="error-not-receiver">vous n'êtes pas destinataire de cette demande.</key>
+  <key id="error-task-not-for-you">vous n'êtes pas autorisé à exécuter cette tâche.</key>
+  <key id="error-unknown-task-type">le type de cette tâche n'est pas reconnu.</key>
+  <key id="success-sending-message">le message a bien été envoyé.</key>
+</i18n>

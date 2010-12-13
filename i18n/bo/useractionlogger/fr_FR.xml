@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.inquiry.bo.useractionlogger" lcid="fr_FR">
+  <key id="insert-folder">insert.folder {documentlabel}</key>
+  <key id="log-insert-folder">log-insert-folder</key>
+</i18n>

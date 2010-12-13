@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.inquiry.frontoffice" lcid="de_DE">
+  <key id="error-sending-message">ein Fehler beim Versenden Ihrer Nachricht. Bitte geben Sie es erneut.</key>
+  <key id="success-sending-message">Ihre Nachricht wurde gesendet.</key>
+  <key id="your-message">Ihre Nachricht</key>
+</i18n>

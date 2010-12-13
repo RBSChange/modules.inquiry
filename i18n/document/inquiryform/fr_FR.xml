@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.inquiry.document.inquiryform" lcid="fr_FR">
+  <include id="m.form.document.baseform"/>
+  <key id="document-name">formulaire de demande</key>
+  <key id="starttaskid">tâche de workflow</key>
+  <key id="starttaskid-help">cette tâche permet d'identifier le workflow à lancer pour chaque demande créée à partir de ce formulaire.</key>
+  <key id="secured">sécurisé</key>
+  <key id="secured-help">un formulaire sécurisé ne pourra être rempli que par des utilisateurs authentifiés.</key>
+  <key id="inbox">boite de réception</key>
+  <key id="inbox-help">dossier du module ″demandes″ où seront enregistrées les nouvelles demandes. Si laissé vide, les demandes seront enrigistrées à la racine du module.</key>
+  <key id="receiver">destinataires</key>
+  <key id="receiver-help">ensemble des groupes et/ou utilisateurs habilités à répondre aux demandes en provenance de ce formulaire.</key>
+  <key id="messagebyauthornotification">nouveau message du demandeur</key>
+  <key id="messagebyauthornotification-help">notification envoyée lorsque le demandeur envoie un nouveau message.</key>
+  <key id="messagebyreceivernotification">nouveau message d'un destinataire</key>
+  <key id="messagebyreceivernotification-help">notification envoyée lorsque l'un des destinataire envoie un nouveau message.</key>
+  <key id="closeinquirynotification">clôture de la demande</key>
+  <key id="closeinquirynotification-help">notification envoyée lors de la clôture de la demande.</key>
+</i18n>
