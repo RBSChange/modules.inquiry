@@ -326,7 +326,7 @@ class inquiry_InquiryService extends f_persistentdocument_DocumentService
 		$code = $this->getCaseParameter($inquiry, $parameterName);
 		if ($code)
 		{
-			return notification_NotificationService::getInstance()->getNotificationByCodeName($code);
+			return notification_NotificationService::getInstance()->getByCodeName($code);
 		}
 		return null;
 	}
