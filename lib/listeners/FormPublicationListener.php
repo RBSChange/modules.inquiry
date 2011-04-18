@@ -25,7 +25,7 @@ class inquiry_FromPublicationListener
 	 * @param f_persistentdocument_DocumentService $sender
 	 * @param array $params
 	 */
-	public function onPersistentDocumentUnPublished($sender, $params)
+	public function onPersistentDocumentUnpublished($sender, $params)
 	{
 		$document = $params['document'];
 		$this->rePublishRelatedForms($document);
