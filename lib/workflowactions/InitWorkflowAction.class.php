@@ -1,5 +1,5 @@
 <?php
-class inquiry_InitWorkflowAction extends workflow_BaseWorkflowaction
+class inquiry_InitWorkflowAction extends inquiry_BaseWorkflowAction
 {
 	/**
 	 * This method will execute the action.

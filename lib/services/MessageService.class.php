@@ -203,11 +203,11 @@ class inquiry_MessageService extends f_persistentdocument_DocumentService
 		$notification = $isFromStaff ? $target->getMessageByReceiverNotification() : $target->getMessageByAuthorNotification();
 		if ($notification !== null)
 		{
-			$notificationService = notification_NotificationService::getInstance();
-			$notificationService->setMessageService(MailService::getInstance());
-			$parameters = $this->getNotificationParameters($message);
+			$ns = $notification->getDocumentService();
+			$notification->setSendingModuleName('inquiry');
+			$callback = array($this, 'getNotificationParameters');
 			$recipients = $this->getNotificationRecipients($message);
-			$notificationService->send($notification, $recipients, $parameters, 'inquiry');
+			$ns->sendNotificationCallback($notification, $recipients, $callback, $message);
 		}
 	}
 	
@@ -215,7 +215,7 @@ class inquiry_MessageService extends f_persistentdocument_DocumentService
 	 * @param inquiry_persistentdocument_message $message
 	 * @return Array<String=>String>
 	 */
-	protected function getNotificationParameters($message)
+	public function getNotificationParameters($message)
 	{
 		$target = $message->getTarget();
 		$inquiryParameters = $target->getDocumentService()->getNotificationParameters($target);

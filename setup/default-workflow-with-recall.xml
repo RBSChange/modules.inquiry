@@ -10,10 +10,10 @@
 			body="&lt;p&gt;Rappel : une réponse de votre part est attendue sur la {inquiryLink}&lt;/p&gt;"
 			availableparameters="{inquiryId}, {inquiryLabel}, {inquiryUrl}, {inquiryLink}, {inqiuryCreationdate}, {messageContents}" />
 			
-		<notification codename="modules_inquiry/recallAuthor"
-			label="Rappel (pour le demandeur)"
+		<notification codename="modules_inquiry/recallReceiver"
+			label="Rappel (pour les destinataires"
 			subject="Rappel : une réponse de votre part est attendue sur la demande n°{inquiryId}"
-			body="&lt;p&gt;Rappel : une réponse de votre part est attendue sur la {inquiryLink}&lt;/p&gt;"
+			body="&lt;p&gt;Rappel : une réponse de votre part est attendue sur la demande n°{inquiryId}&lt;/p&gt;"
 			availableparameters="{inquiryId}, {inquiryLabel}, {inquiryUrl}, {inquiryLink}, {inqiuryCreationdate}, {messageContents}" />
 	</systemfolder>
 

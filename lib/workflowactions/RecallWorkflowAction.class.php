@@ -1,9 +1,8 @@
 <?php
 /**
- * Resend the creation notification of the last transition.
- * @package modules.workflow
+ * @package modules.inquiry
  */
-class inquiry_RecallWorkflowAction extends workflow_BaseWorkflowaction
+class inquiry_RecallWorkflowAction extends inquiry_BaseWorkflowAction
 {
 	/**
 	 * This method will execute the action.
@@ -14,14 +13,22 @@ class inquiry_RecallWorkflowAction extends workflow_BaseWorkflowaction
 		$this->setCaseParameter('__NEXT_ACTORS_IDS', $this->getCaseParameter('INQUIRY_RECEIVERS'));
 		
 		// Send the notification to the receivers.
-		$inquiry = $this->getDocument();
-		$emails = array();
-		foreach ($inquiry->getPublishedReceiverArray() as $user)
+		$document = $this->getDocument();
+		$ns = notification_NotificationService::getInstance();
+		$notification = $ns->getConfiguredByCodeName('modules_inquiry/recallReceiver', $document->getWebsiteId(), $document->getLang());
+		if ($notification instanceof notification_persistentdocument_notification)
 		{
-			$emails[] = $user->getEmail();
+			$notification->setSendingModuleName('inquiry');
+			$callback = array($document->getDocumentService(), 'getNotificationParameters');
+			$recipients = new mail_MessageRecipients();
+			$emails = array();
+			foreach ($document->getPublishedReceiverArray() as $user)
+			{
+				$emails[] = $user->getEmail();
+			}
+			$recipients->setTo($emails);
+			$ns->sendNotificationCallback($notification, $recipients, $callback, $document);
 		}
-		$replacements = $inquiry->getDocumentService()->getNotificationParameters($inquiry);
-		$this->sendNotification('modules_inquiry/recallReceiver', $emails, $replacements);
 		
 		$this->setExecutionStatus(workflow_WorkitemService::EXECUTION_SUCCESS);
 		return true;

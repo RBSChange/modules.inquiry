@@ -1,9 +1,8 @@
 <?php
 /**
- * Resend the creation notification of the last transition.
- * @package modules.workflow
+ * @package modules.inquiry
  */
-class inquiry_RecallAuthorWorkflowAction extends workflow_BaseWorkflowaction
+class inquiry_RecallAuthorWorkflowAction extends inquiry_BaseWorkflowAction
 {
 	/**
 	 * This method will execute the action.
@@ -14,10 +13,18 @@ class inquiry_RecallAuthorWorkflowAction extends workflow_BaseWorkflowaction
 		$this->setCaseParameter('__NEXT_ACTORS_IDS', $this->getCaseParameter('INQUIRY_RECEIVERS'));
 		
 		// Send the notification to the author.
-		$inquiry = $this->getDocument();
-		$replacements = $inquiry->getDocumentService()->getNotificationParameters($inquiry);
-		$this->sendNotification('modules_inquiry/recallAuthor', array($inquiry->getAuthorEmail()), $replacements);
-				
+		$document = $this->getDocument();
+		$ns = notification_NotificationService::getInstance();
+		$notification = $ns->getConfiguredByCodeName('modules_inquiry/recallAuthor', $document->getWebsiteId(), $document->getLang());
+		if ($notification instanceof notification_persistentdocument_notification)
+		{
+			$notification->setSendingModuleName('inquiry');
+			$callback = array($document->getDocumentService(), 'getNotificationParameters');
+			$recipients = new mail_MessageRecipients();
+			$recipients->setTo(array($document->getAuthorEmail()));
+			$ns->sendNotificationCallback($notification, $recipients, $callback, $document);
+		}		
+		
 		$this->setExecutionStatus(workflow_WorkitemService::EXECUTION_SUCCESS);
 		return true;
 	}

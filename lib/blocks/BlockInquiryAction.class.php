@@ -82,12 +82,12 @@ class inquiry_BlockInquiryAction extends website_BlockAction
 		$this->sendMessage($request, $inquiry);
 		
 		$taskLabel = $request->getParameter('website_BlockAction_submit');
-		$taskLabel = $taskLabel['inquiry']['task'];
+		$taskLabel = $taskLabel[$this->getBlockId()]['task'];
 		if ($this->authMode == 'author')
 		{
-			foreach ($inquiry->getDocumentService()->getMessageTasksForAuthor($inquiry) as $taskId => $taskLabel)
+			foreach ($inquiry->getDocumentService()->getMessageTasksForAuthor($inquiry) as $taskId => $messageTaskLabel)
 			{
-				if ($taskLabel == $taskLabel)
+				if ($taskLabel == $messageTaskLabel)
 				{
 					return $this->doExecuteMessageTask($request, $response, $inquiry, $taskId);
 				}
@@ -102,9 +102,9 @@ class inquiry_BlockInquiryAction extends website_BlockAction
 					return $this->doExecuteUserTask($request, $response, $inquiry, $task);
 				}
 			}
-			foreach ($inquiry->getDocumentService()->getMessageTasksForReceiver($inquiry) as $taskId => $taskLabel)
+			foreach ($inquiry->getDocumentService()->getMessageTasksForReceiver($inquiry) as $taskId => $messageTaskLabel)
 			{
-				if ($taskLabel == $taskLabel)
+				if ($taskLabel == $messageTaskLabel)
 				{
 					return $this->doExecuteMessageTask($request, $response, $inquiry, $taskId);
 				}

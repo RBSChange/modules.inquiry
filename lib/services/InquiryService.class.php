@@ -290,7 +290,7 @@ class inquiry_InquiryService extends f_persistentdocument_DocumentService
 		$url = LinkHelper::getDocumentUrl($inquiry);
 		$label = $inquiry->getLabelAsHtml();
 		$creationDate = date_Calendar::getInstance($inquiry->getCreationdate());
-		$formatedCreationDate = date_DateFormat::format($creationDate, f_Locale::translate('&framework.date.default-date-format;'));
+		$formatedCreationDate = date_DateFormat::format($creationDate, date_DateFormat::getDateFormat());
 		return array(
 			'inquiryId' => $inquiry->getId(), 
 			'inquiryLabel' => $label,
@@ -326,7 +326,7 @@ class inquiry_InquiryService extends f_persistentdocument_DocumentService
 		$code = $this->getCaseParameter($inquiry, $parameterName);
 		if ($code)
 		{
-			return notification_NotificationService::getInstance()->getByCodeName($code);
+			return notification_NotificationService::getInstance()->getConfiguredByCodeName($code, $inquiry->getWebsiteId(), $inquiry->getLang());
 		}
 		return null;
 	}
