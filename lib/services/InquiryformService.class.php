@@ -195,7 +195,7 @@ class inquiry_InquiryformService extends form_BaseformService
 		if (!$document->getIsDuplicating())
 		{
 			$field = form_MailService::getInstance()->getNewDocumentInstance();
-			$field->setLabel(f_Locale::translate('&modules.inquiry.bo.general.Default-mail-label;'));
+			$field->setLabel(LocaleService::getInstance()->transFO('m.inquiry.bo.general.default-mail-label', array('ucf')));
 			$field->setFieldName('email');
 			$field->setRequired(true);
 			$field->setIsLocked(true);

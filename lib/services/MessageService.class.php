@@ -83,8 +83,6 @@ class inquiry_MessageService extends f_persistentdocument_DocumentService
 	 */
 	public function getInfosByTargetId($targetId, $includeDetails = false)
 	{
-		$dateTimeFormat = inquiry_ModuleService::getInstance()->getUIDateTimeFormat();
-		
 		$infos = array('toStaffCount' => 0, 'fromStaffCount' => 0);
 		$messages = $this->getByTargetId($targetId);
 		$infos['totalCount'] = strval(count($messages));
@@ -97,7 +95,7 @@ class inquiry_MessageService extends f_persistentdocument_DocumentService
 			if ($includeDetails)
 			{
 				$messageInfo = array();
-				$messageInfo['date'] = date_DateFormat::format($message->getCreationdate(), $dateTimeFormat);
+				$messageInfo['date'] = date_Formatter::formatBO($message->getCreationdate());
 				$messageInfo['contents'] = $message->getContentsAsHtml();
 				$messageInfo['authorFullName'] = $message->getAuthorFullName();
 				$messageInfo['label'] = $message->getLabel();
@@ -189,14 +187,14 @@ class inquiry_MessageService extends f_persistentdocument_DocumentService
 	 */
 	protected function execSendMessage($target, $contents, $senderEmail, $sender, $isFromStaff)
 	{
-		$date = date_DateFormat::format(date_Calendar::getInstance(), f_Locale::translate('&modules.inquiry.document.message.date-format;'));
+		$date = date_Formatter::format(date_Calendar::getInstance());
 		$message = $this->getNewDocumentInstance();
 		$message->setSender($sender);
 		$message->setSenderEmail($senderEmail);
-		$message->setContents($contents);
+		$message->setContentsAsBBCode($contents);
 		$message->setTarget($target);
 		$message->setIsFromStaff($isFromStaff);
-		$message->setLabel(f_Locale::translate('&modules.inquiry.document.message.Label-' . ($isFromStaff ? 'from' : 'to') . '-staff;', array('author' => $message->getAuthorFullName(), 'date' => $date)));
+		$message->setLabel(LocaleService::getInstance()->transFO('m.inquiry.document.message.label-' . ($isFromStaff ? 'from' : 'to') . '-staff', array('ucf'), array('author' => $message->getAuthorFullName(), 'date' => $date)));
 		$message->save();
 		
 		// Send the notification.
@@ -231,19 +229,5 @@ class inquiry_MessageService extends f_persistentdocument_DocumentService
 	{
 		$target = $message->getTarget();
 		return $target->getDocumentService()->getNotificationRecipients($target);
-	}
-	
-	/**
-	 * @param comment_persistentdocument_comment $document
-	 * @param Integer $parentNodeId Parent node ID where to save the document (optionnal => can be null !).
-	 * @return void
-	 */
-	protected function preSave($document, $parentNodeId)
-	{
-		// Fix bbcode content.
-		if ($document->isPropertyModified('contents'))
-		{
-			$document->setContents(website_BBCodeService::getInstance()->fixContent($document->getContents()));
-		}
 	}
 }

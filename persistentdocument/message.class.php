@@ -6,15 +6,26 @@ class inquiry_persistentdocument_message extends inquiry_persistentdocument_mess
 	 */
 	public function getContentsAsHtml()
 	{
-		return website_BBCodeService::getInstance()->ToHtml(parent::getContents());
+		$parser = new website_BBCodeParser();
+		return $parser->convertXmlToHtml($this->getContents());
 	}
-	
+
 	/**
-	 * @return String
+	 * @return string
 	 */
-	public function getContentsAsInput()
+	public function getContentsAsBBCode()
 	{
-		return htmlspecialchars(parent::getContents());
+		$parser = new website_BBCodeParser();
+		return $parser->convertXmlToBBCode($this->getContents());
+	}
+
+	/**
+	 * @param string $bbcode
+	 */
+	public function setContentsAsBBCode($bbcode)
+	{
+		$parser = new website_BBCodeParser();
+		$this->setContents($parser->convertBBCodeToXml($bbcode, 'default'));
 	}
 	
 	/**

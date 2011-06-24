@@ -16,7 +16,7 @@ class inquiry_BlockInquiryformAction extends form_BlockFormBaseAction
 		{
 			$agaviUser = Controller::getInstance()->getContext()->getUser();
 			$agaviUser->setAttribute('illegalAccessPage', $_SERVER["REQUEST_URI"]);
-			$this->addError(f_Locale::translate('&modules.inquiry.frontoffice.Error-secured-form;'));
+			$this->addError(LocaleService::getInstance()->transFO('m.inquiry.frontoffice.error-secured-form', array('ucf')));
 			return false;
 		}
 		return true;

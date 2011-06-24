@@ -33,7 +33,8 @@ class inquiry_BlockInquiryAction extends website_BlockAction
 			return $this->getLoginView($request, $inquiry);
 		}
 		
-		$request->setAttribute('contentsPreview', website_BBCodeService::getInstance()->ToHtml($request->getParameter('contents')));
+		$parser = new website_BBCodeParser();
+		$request->setAttribute('contentsPreview', $parser->convertBBCodeToHtml($request->getParameter('contents'), 'default'));
 		return $this->getSuccessView($request, $inquiry);
 	}
 	
@@ -52,7 +53,7 @@ class inquiry_BlockInquiryAction extends website_BlockAction
 		
 		if (!$request->getParameter('contents'))
 		{
-			$this->addError(f_Locale::translate('&modules.inquiry.frontoffice.Error-no-contents;'));
+			$this->addError(LocaleService::getInstance()->transFO('m.inquiry.frontoffice.error-no-contents', array('ucf')));
 			return $this->getSuccessView($request, $inquiry);
 		}
 		$this->sendMessage($request, $inquiry);
@@ -76,7 +77,7 @@ class inquiry_BlockInquiryAction extends website_BlockAction
 		
 		if (!$request->getParameter('contents'))
 		{
-			$this->addError(f_Locale::translate('&modules.inquiry.frontoffice.Error-no-contents;'));
+			$this->addError(LocaleService::getInstance()->transFO('m.inquiry.frontoffice.error-no-contents', array('ucf')));
 			return $this->getSuccessView($request, $inquiry);
 		}
 		$this->sendMessage($request, $inquiry);
@@ -110,7 +111,7 @@ class inquiry_BlockInquiryAction extends website_BlockAction
 				}
 			}
 		}
-		$this->addError(f_Locale::translate('&modules.inquiry.frontoffice.Invalid-task;'));
+		$this->addError(LocaleService::getInstance()->transFO('m.inquiry.frontoffice.invalid-task', array('ucf')));
 		return website_BlockView::ERROR;
 	}
 	

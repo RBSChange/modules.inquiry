@@ -11,6 +11,7 @@ class inquiry_SendMessageAction extends f_action_BaseJSONAction
 	 */
 	public function _execute($context, $request)
 	{
+		$ls = LocaleService::getInstance();
 		$target = $this->getDocumentInstanceFromRequest($request);
 		$currentUser = users_UserService::getInstance()->getCurrentBackEndUser();
 		if ($target->isPublished() && $currentUser !== null && in_array($currentUser, $target->getReceiverArray()))
@@ -37,7 +38,7 @@ class inquiry_SendMessageAction extends f_action_BaseJSONAction
 								}
 								else
 								{
-									return $this->sendJSONError(f_Locale::translateUI('&modules.inquiry.bo.doceditor.panel.messages.Error-task-not-for-you;', true));
+									return $this->sendJSONError($ls->transBO('m.inquiry.bo.doceditor.panel.messages.error-task-not-for-you', array('ucf')));
 								}
 								break;
 							
@@ -53,21 +54,21 @@ class inquiry_SendMessageAction extends f_action_BaseJSONAction
 								}
 								if (!$taskFound)
 								{
-									return $this->sendJSONError(f_Locale::translateUI('&modules.inquiry.bo.doceditor.panel.messages.Error-task-not-for-you;', true));
+									return $this->sendJSONError($ls->transBO('m.inquiry.bo.doceditor.panel.messages.error-task-not-for-you', array('ucf')));
 								}
 								break;
 							
 							default: 
-								return $this->sendJSONError(f_Locale::translateUI('&modules.inquiry.bo.doceditor.panel.messages.Error-unknown-task-type;', true));
+								return $this->sendJSONError($ls->transBO('m.inquiry.bo.doceditor.panel.messages.error-unknown-task-type', array('ucf')));
 								break;
 						}
 					}
 					return $this->sendJSON($ims->getInfosByTargetId($target->getId(), true));
 				}
 			}
-			return $this->sendJSONError(f_Locale::translateUI('&modules.inquiry.bo.doceditor.panel.messages.Error-no-message-to-send;', true));
+			return $this->sendJSONError($ls->transBO('m.inquiry.bo.doceditor.panel.messages.error-no-message-to-send', array('ucf')));
 		}
-		return $this->sendJSONError(f_Locale::translateUI('&modules.inquiry.bo.doceditor.panel.messages.Error-not-receiver;', true));
+		return $this->sendJSONError($ls->transBO('m.inquiry.bo.doceditor.panel.messages.error-not-receiver', array('ucf')));
 	}
 	
 	/**

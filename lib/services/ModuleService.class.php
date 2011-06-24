@@ -21,12 +21,4 @@ class inquiry_ModuleService extends ModuleBaseService
 		}
 		return self::$instance;
 	}
-	
-	/**
-	 * @return String
-	 */
-	public function getUIDateTimeFormat()
-	{
-		return f_Locale::translateUI('&modules.uixul.bo.datePicker.calendar.dataWriterTimeFormat;');
-	}
 }

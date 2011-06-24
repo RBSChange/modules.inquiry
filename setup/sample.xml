@@ -15,20 +15,20 @@
 			subject="Message de l'auteur de la demande numéro {inquiryId}"
 			header="&lt;strong&gt;Message à propos de la {inquiryLink}.&lt;/strong&gt;"
 			body="&lt;p&gt;{messageContents}&lt;/p&gt;"
-			availableparameters="{inquiryId}, {inquiryLabel}, {inquiryUrl}, {inquiryLink}, {inqiuryCreationdate}, {messageContents}" />
+			availableparameters="{inquiryId}, {inquiryLabel}, {inquiryUrl}, {inquiryLink}, {inquiryCreationdate}, {messageContents}" />
 			
 		<notification codename="modules_inquiry/messageFromReceiver" id="n2"
 			label="Message envoyé à un client"
 			subject="Message d'un destinataire de la demande numéro {inquiryId}"
 			header="&lt;strong&gt;Message à propos de la {inquiryLink}.&lt;/strong&gt;"
 			body="&lt;p&gt;{messageContents}&lt;/p&gt;"
-			availableparameters="{inquiryId}, {inquiryLabel}, {inquiryUrl}, {inquiryLink}, {inqiuryCreationdate}, {messageContents}" />
+			availableparameters="{inquiryId}, {inquiryLabel}, {inquiryUrl}, {inquiryLink}, {inquiryCreationdate}, {messageContents}" />
 			
 		<notification codename="modules_inquiry/closeInquiry" id="n3"
 			label="Clôture de la demande"
 			subject="Clôture de la demande numéro {inquiryId}"
 			body="&lt;strong&gt;La {inquiryLink} vient d'être clôturée.&lt;/strong&gt;"
-			availableparameters="{inquiryId}, {inquiryLabel}, {inquiryUrl}, {inquiryLink}, {inqiuryCreationdate}" />
+			availableparameters="{inquiryId}, {inquiryLabel}, {inquiryUrl}, {inquiryLink}, {inquiryCreationdate}" />
 	</systemfolder>
 	
 	<rootfolder module="form">

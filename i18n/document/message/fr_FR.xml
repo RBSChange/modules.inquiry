@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <i18n baseKey="m.inquiry.document.message" lcid="fr_FR">
-  <key id="document-name">message</key>
-  <key id="sender">émetteur</key>
-  <key id="creationdate">date d'envoi</key>
-  <key id="contents">contenu</key>
-  <key id="date-format">d/m/Y H:i</key>
-  <key id="label-to-staff">message du demandeur daté du {date}</key>
-  <key id="label-from-staff">message de l'équipe du site daté du {date}</key>
+	<key id="document-name">message</key>
+	<key id="sender">émetteur</key>
+	<key id="creationdate">date d'envoi</key>
+	<key id="contents">contenu</key>
+	<key id="label-to-staff">message du demandeur daté du {date}</key>
+	<key id="label-from-staff">message de l'équipe du site daté du {date}</key>
 </i18n>

@@ -111,7 +111,7 @@ class inquiry_InquiryService extends f_persistentdocument_DocumentService
 	{
 		if ($document->getLabel() === 'temporary-label')
 		{
-			$document->setLabel(f_Locale::translate('&modules.inquiry.document.inquiry.Label-template;', array('id' => $document->getId())));
+			$document->setLabel(LocaleService::getInstance()->transFO('m.inquiry.document.inquiry.label-template', array('ucf'), array('id' => $document->getId())));
 			$tm = $this->getTransactionManager();
 			$tm->beginTransaction();
 			$this->getPersistentProvider()->updateDocument($document);
@@ -243,7 +243,7 @@ class inquiry_InquiryService extends f_persistentdocument_DocumentService
 			catch (Exception $e)
 			{
 				$e; // Avoid Eclipse warning...
-				$infos['mailValue'] = f_Locale::translateUI('&modules.form.bo.general.Unexisting-file;', array('id' => $value));
+				$infos['mailValue'] = LocaleService::getInstance()->transBO('m.form.bo.general.unexisting-file', array('ucf'), array('id' => $value));
 			}
 		}
 		return $infos;
@@ -289,14 +289,13 @@ class inquiry_InquiryService extends f_persistentdocument_DocumentService
 	{
 		$url = LinkHelper::getDocumentUrl($inquiry);
 		$label = $inquiry->getLabelAsHtml();
-		$creationDate = date_Calendar::getInstance($inquiry->getCreationdate());
-		$formatedCreationDate = date_DateFormat::format($creationDate, date_DateFormat::getDateFormat());
 		return array(
 			'inquiryId' => $inquiry->getId(), 
 			'inquiryLabel' => $label,
 			'inquiryUrl' => $url,
 			'inquiryLink' => (f_util_StringUtils::isEmpty($url) ? '' : '<a href="' . $url . '" class="link">' . $label . '</a>'),
-			'inqiuryCreationdate' => $formatedCreationDate
+			'inquiryCreationdate' => date_Formatter::format($inquiry->getCreationdate()),
+			'inqiuryCreationdate' => date_Formatter::format($inquiry->getCreationdate()) // @deprecated (will be removed in 4.0)
 		);
 	}
 	

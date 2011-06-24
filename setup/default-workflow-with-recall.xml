@@ -8,13 +8,13 @@
 			label="Rappel (pour le demandeur)"
 			subject="Rappel : une réponse de votre part est attendue sur la demande n°{inquiryId}"
 			body="&lt;p&gt;Rappel : une réponse de votre part est attendue sur la {inquiryLink}&lt;/p&gt;"
-			availableparameters="{inquiryId}, {inquiryLabel}, {inquiryUrl}, {inquiryLink}, {inqiuryCreationdate}, {messageContents}" />
+			availableparameters="{inquiryId}, {inquiryLabel}, {inquiryUrl}, {inquiryLink}, {inquiryCreationdate}, {messageContents}" />
 			
 		<notification codename="modules_inquiry/recallReceiver"
 			label="Rappel (pour les destinataires"
 			subject="Rappel : une réponse de votre part est attendue sur la demande n°{inquiryId}"
 			body="&lt;p&gt;Rappel : une réponse de votre part est attendue sur la demande n°{inquiryId}&lt;/p&gt;"
-			availableparameters="{inquiryId}, {inquiryLabel}, {inquiryUrl}, {inquiryLink}, {inqiuryCreationdate}, {messageContents}" />
+			availableparameters="{inquiryId}, {inquiryLabel}, {inquiryUrl}, {inquiryLink}, {inquiryCreationdate}, {messageContents}" />
 	</systemfolder>
 
 	<rootfolder module="workflow">

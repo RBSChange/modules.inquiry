@@ -1,4 +1,4 @@
-<h2 change:h="" change:translate="&modules.inquiry.frontoffice.Inquiry-list"></h2>
+<h2 change:h="">${trans:m.inquiry.frontoffice.inquiry-list,ucf}</h2>
 
 <ul tal:condition="inquiries" class="normal">
 	<tal:block tal:repeat="inquiry inquiries">
@@ -10,4 +10,4 @@
 
 <tal:block change:paginator="inquiries"/>
 
-<p tal:condition="not: inquiries" change:translate="modules.inquiry.frontoffice.No-inquiries" />
+<p tal:condition="not: inquiries">${trans:m.inquiry.frontoffice.no-inquiries,ucf}</p>

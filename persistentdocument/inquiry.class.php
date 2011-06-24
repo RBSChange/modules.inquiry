@@ -125,7 +125,7 @@ class inquiry_persistentdocument_inquiry extends inquiry_persistentdocument_inqu
 			$label = $item->getLabel();
 			if ($status == 'closed')
 			{
-				$label .= ' ' . f_Locale::translate('&modules.inquiry.document.inquiry.' . (($this->getDocumentService()->getCaseParameter($this, 'CLOSED_BY') == 'author') ? 'by-author' : 'by-receiver') . ';');
+				$label .= ' ' . LocaleService::getInstance()->transFO('m.inquiry.document.inquiry.' . (($this->getDocumentService()->getCaseParameter($this, 'CLOSED_BY') == 'author') ? 'by-author' : 'by-receiver'));
 			}
 			return $label;
 		}
