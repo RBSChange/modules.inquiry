@@ -34,7 +34,7 @@ class inquiry_BlockInquiryAction extends website_BlockAction
 		}
 		
 		$parser = new website_BBCodeParser();
-		$request->setAttribute('contentsPreview', $parser->convertBBCodeToHtml($request->getParameter('contents'), 'default'));
+		$request->setAttribute('contentsPreview', $parser->convertBBCodeToHtml($request->getParameter('contents'), $parser->getModuleProfile('inquiry')));
 		return $this->getSuccessView($request, $inquiry);
 	}
 	
