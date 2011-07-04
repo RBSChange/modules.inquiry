@@ -13,13 +13,8 @@ class inquiry_BlockInquirylistAction extends website_TaggerBlockAction
 	 */
 	function execute($request, $response)
 	{
-		if ($this->isInBackoffice())
-		{
-			return website_BlockView::NONE;
-		}
-		
 		$currentUser = users_UserService::getInstance()->getCurrentFrontEndUser();
-		if ($currentUser === null)
+		if ($this->isInBackofficeEdition() || $currentUser === null)
 		{
 			return website_BlockView::NONE;
 		}
