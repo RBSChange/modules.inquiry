@@ -1,7 +1,7 @@
 <h2 change:h="">${inquiry/getLabel}</h2>
 
 <ul class="normal">
-	<li><strong>${trans:m.inquiry.frontoffice.inquiry-date,lab,ucf}</strong> <tal:block change:datetime="inquiry/getCreationdate" /></li>
+	<li><strong>${trans:m.inquiry.frontoffice.inquiry-date,lab,ucf}</strong> <tal:block tal:replace="datetime:inquiry/getCreationdate,from=gmt" /></li>
 	<li><strong>${trans:m.inquiry.frontoffice.inquiry-status,lab,ucf}</strong> ${inquiry/getProcessingStatusLabelAsHtml}</li>
 </ul>
 
@@ -22,7 +22,7 @@
 		
 		<ul>
 			<li class="from-author">
-				<p><strong>${trans:m.inquiry.frontoffice.message-sent-by-author,ucf} <tal:block change:datetime="" /></strong></p>
+				<p><strong>${trans:m.inquiry.frontoffice.message-sent-by-author,ucf} <tal:block tal:replace="datetime:,from=gmt" /></strong></p>
 				<blockquote>${contentsPreview}</blockquote>
 			</li>
 		</ul>
@@ -58,11 +58,11 @@
 <ul tal:condition="messages">
 	<tal:block tal:repeat="message messages">
 		<li class="from-author" tal:condition="not: message/getIsFromStaff">
-			<p><strong>${trans:m.inquiry.frontoffice.message-sent-by-author,ucf} <tal:block change:datetime="message/getMessageDate" /></strong></p>
+			<p><strong>${trans:m.inquiry.frontoffice.message-sent-by-author,ucf} <tal:block tal:replace="datetime:message/getMessageDate,from=gmt" /></strong></p>
 			<blockquote>${message/getContentsAsHtml}</blockquote>
 		</li>
 		<li class="from-staff" tal:condition="message/getIsFromStaff">
-			<p><strong>${trans:m.inquiry.frontoffice.message-sent-by-staff,ucf} <tal:block change:datetime="message/getMessageDate" /></strong></p>
+			<p><strong>${trans:m.inquiry.frontoffice.message-sent-by-staff,ucf} <tal:block tal:replace="datetime:message/getMessageDate,from=gmt" /></strong></p>
 			<blockquote>${message/getContentsAsHtml}</blockquote>
 		</li>	
 	</tal:block>
