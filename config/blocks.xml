@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <blocks>
-	<block type="modules_inquiry_inquiryform" icon="form" label="&amp;modules.inquiry.bo.blocks.inquiryform.Title;" />
-	<block type="modules_inquiry_inquiry" icon="mail" label="&amp;modules.inquiry.bo.blocks.inquiry.Title;">
+	<block type="modules_inquiry_inquiryform" icon="form" />
+	<block type="modules_inquiry_inquiry" icon="mail">
 		<parameters>
 			<parameter name="nbItemPerPage" type="Integer" default-value="20" />
 		</parameters>
 	</block>
-	<block type="modules_inquiry_inquirylist" icon="list-block" label="&amp;modules.inquiry.bo.blocks.Inquirylist.Title;">
+	<block type="modules_inquiry_inquirylist" icon="list-block">
 		<parameters>
 			<parameter name="nbItemPerPage" type="Integer" default-value="20" />
 		</parameters>
