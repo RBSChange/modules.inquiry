@@ -56,18 +56,14 @@ class inquiry_InquiryformService extends form_BaseformService
 	}
 	
 	/**
-	 * @param form_persistentdocument_baseform $form
-	 * @param form_persistentdocument_response $response
-	 * @param block_BlockRequest $request
-	 * @param array $result
-	 * @param String $acknowledgmentReceiver
-	 * @param String $replyTo
+	 * @param array $params
 	 * @return array
 	 */
-	protected function getAcknowledgementNotificationParameters($form, $response, $request, $result, $acknowledgmentReceiver, $replyTo)
+	public function getAcknowledgmentNotifParameters($params)
 	{
-		$parameters = parent::getAcknowledgementNotificationParameters($form, $response, $request, $result, $acknowledgmentReceiver, $replyTo);
-		
+		$parameters = parent::getAcknowledgmentNotifParameters($params);
+
+		$result = $params['result'];		
 		$inquiry = $result['inquiry'];
 		$password = $inquiry->getPassword();
 		$linkParameters = ($password) ? array('inquiryParam[password]' => $password) : array();
@@ -77,8 +73,6 @@ class inquiry_InquiryformService extends form_BaseformService
 			$parameters[self::INQUIRY_URL_PARAM_NAME] = $url;
 			$parameters[self::INQUIRY_LINK_PARAM_NAME] = '<a href="'.$url.'" class="link">'.$inquiry->getLabel().'</a>';
 		}
-		
-		return $parameters;
 	}
 	
 	/**

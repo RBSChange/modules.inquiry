@@ -58,7 +58,7 @@ class inquiry_BlockInquiryAction extends website_BlockAction
 		}
 		$this->sendMessage($request, $inquiry);
 				
-		HttpController::getInstance()->redirectToUrl(LinkHelper::getCurrentUrlComplete());
+		HttpController::getInstance()->redirectToUrl(LinkHelper::getCurrentUrl());
 		return website_BlockView::NONE;
 	}
 	
@@ -131,7 +131,7 @@ class inquiry_BlockInquiryAction extends website_BlockAction
 		
 		workflow_WorkflowEngineService::getInstance()->executeMessageTask($inquiry->getId(), $taskId);
 		
-		HttpController::getInstance()->redirectToUrl(LinkHelper::getCurrentUrlComplete());
+		HttpController::getInstance()->redirectToUrl(LinkHelper::getCurrentUrl());
 		return website_BlockView::NONE;
 	}
 	
@@ -146,7 +146,7 @@ class inquiry_BlockInquiryAction extends website_BlockAction
 	{
 		TaskHelper::getUsertaskService()->execute($task, '', '', $task->getUser());
 		
-		HttpController::getInstance()->redirectToUrl(LinkHelper::getCurrentUrlComplete());
+		HttpController::getInstance()->redirectToUrl(LinkHelper::getCurrentUrl());
 		return website_BlockView::NONE;
 	}
 	
