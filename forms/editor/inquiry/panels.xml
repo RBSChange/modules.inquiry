@@ -5,7 +5,7 @@
 	<xul>
 		<javascript>
 			<constructor><![CDATA[
-				this.addTab('messages', '&modules.inquiry.bo.doceditor.tab.Messages;', 'mail');
+				this.addTab('messages', "${transui:m.inquiry.bo.doceditor.tab.messages,js,ucf}", 'mail');
 			]]></constructor>
 		</javascript>
 	</xul>

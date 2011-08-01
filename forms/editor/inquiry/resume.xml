@@ -1,22 +1,22 @@
 <?xml version="1.0"?>
 <panel>
-	<section name="properties" linkedtab="properties" labeli18n="modules.uixul.bo.doceditor.section.Properties" image="{IconsBase}/small/edit-properties.png">
-		<property name="label" labeli18n="modules.uixul.bo.doceditor.property.Label" />
-		<property name="author" labeli18n="modules.inquiry.bo.doceditor.property.Author" class="openactionuri" />
-		<property name="authoremail" labeli18n="modules.inquiry.bo.doceditor.property.Author" />
-		<property name="creationdate" labeli18n="modules.uixul.bo.doceditor.property.Creationdate" />
-		<property name="processingStatus" labeli18n="modules.inquiry.bo.doceditor.property.Processing-status" />
-		<property name="form" labeli18n="modules.inquiry.bo.doceditor.property.Form" class="openactionuri" />
+	<section name="properties" linkedtab="properties" labeli18n="m.uixul.bo.doceditor.section.properties" image="{IconsBase}/small/edit-properties.png">
+		<property name="label" labeli18n="m.uixul.bo.doceditor.property.label" />
+		<property name="author" labeli18n="m.inquiry.bo.doceditor.property.author" class="openactionuri" />
+		<property name="authoremail" labeli18n="m.inquiry.bo.doceditor.property.author" />
+		<property name="creationdate" labeli18n="m.uixul.bo.doceditor.property.creationdate" />
+		<property name="processingStatus" labeli18n="m.inquiry.bo.doceditor.property.processing-status" />
+		<property name="form" labeli18n="m.inquiry.bo.doceditor.property.form" class="openactionuri" />
 	</section>
-	<section name="responsedata" labeli18n="modules.form.bo.doceditor.section.Responsedata" image="{IconsBase}/small/form.png" />
-	<section name="messages" linkedtab="messages" actiontexti18n="modules.uixul.bo.doceditor.section.action.View"
-		labeli18n="modules.inquiry.bo.doceditor.section.Messages" image="{IconsBase}/small/mail.png">
-		<property name="totalCount" labeli18n="modules.inquiry.bo.doceditor.property.Total-count"/>
-		<property name="toStaffCount" labeli18n="modules.inquiry.bo.doceditor.property.To-staff-message-count"/>
-		<property name="fromStaffCount" labeli18n="modules.inquiry.bo.doceditor.property.From-staff-message-count"/>
+	<section name="responsedata" labeli18n="m.form.bo.doceditor.section.responsedata" image="{IconsBase}/small/form.png" />
+	<section name="messages" linkedtab="messages" actiontexti18n="m.uixul.bo.doceditor.section.action.view"
+		labeli18n="m.inquiry.bo.doceditor.section.messages" image="{IconsBase}/small/mail.png">
+		<property name="totalCount" labeli18n="m.inquiry.bo.doceditor.property.total-count"/>
+		<property name="toStaffCount" labeli18n="m.inquiry.bo.doceditor.property.to-staff-message-count"/>
+		<property name="fromStaffCount" labeli18n="m.inquiry.bo.doceditor.property.from-staff-message-count"/>
 	</section>	
-	<section name="history" linkedtab="history" actiontexti18n="modules.uixul.bo.doceditor.section.action.View" labeli18n="modules.uixul.bo.doceditor.section.History"
+	<section name="history" linkedtab="history" actiontexti18n="m.uixul.bo.doceditor.section.action.view" labeli18n="m.uixul.bo.doceditor.section.history"
 		image="{IconsBase}/small/history.png">
-		<property name="modificationdate" labeli18n="modules.uixul.bo.doceditor.property.Modificationdate" />
+		<property name="modificationdate" labeli18n="m.uixul.bo.doceditor.property.modificationdate" />
 	</section>
 </panel>
