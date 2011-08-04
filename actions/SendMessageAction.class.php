@@ -3,11 +3,11 @@
  * inquiry_SendMessageAction
  * @package modules.inquiry.actions
  */
-class inquiry_SendMessageAction extends f_action_BaseJSONAction
+class inquiry_SendMessageAction extends change_JSONAction
 {
 	/**
-	 * @param Context $context
-	 * @param Request $request
+	 * @param change_Context $context
+	 * @param change_Request $request
 	 */
 	public function _execute($context, $request)
 	{
@@ -72,8 +72,8 @@ class inquiry_SendMessageAction extends f_action_BaseJSONAction
 	}
 	
 	/**
-	 * @param Context $context
-	 * @param Request $request
+	 * @param change_Context $context
+	 * @param change_Request $request
 	 * @param inquiry_persistentodcument_inquiry $inquiry
 	 * @param string $taskId
 	 */
@@ -87,8 +87,8 @@ class inquiry_SendMessageAction extends f_action_BaseJSONAction
 	}
 	
 	/**
-	 * @param Context $context
-	 * @param Request $request
+	 * @param change_Context $context
+	 * @param change_Request $request
 	 * @param inquiry_persistentodcument_inquiry $inquiry
 	 * @param task_persistentdocument_usertask $task
 	 */
