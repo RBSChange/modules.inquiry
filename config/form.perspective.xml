@@ -41,9 +41,9 @@
 			</drops>
 			<styles properties="fieldType required isLocked conditioned" />
 			<columns>
-				<column name="fieldType" label="FieldType" flex="2" />
-				<column name="fieldRequired" label="FieldRequired" flex="1" />
-				<column name="fieldConditioned" label="FieldConditioned" flex="1" />
+				<column name="fieldType" flex="2" />
+				<column name="fieldRequired" flex="1" />
+				<column name="fieldConditioned" flex="1" />
 			</columns>
 			<contextactions>
 				<contextaction name="edit" />
@@ -67,6 +67,6 @@
 		</model>
 	</models>
 	<actions>
-		<action name="createInquiryform" single="true" permission="Insert_inquiryform" icon="add" label="&amp;modules.inquiry.bo.actions.Create-inquiryform;" />
+		<action name="createInquiryform" single="true" permission="Insert_inquiryform" icon="add" labeli18n="m.inquiry.bo.actions.create-inquiryform" />
 	</actions>
 </perspective>
