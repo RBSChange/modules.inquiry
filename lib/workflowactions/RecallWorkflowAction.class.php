@@ -20,13 +20,13 @@ class inquiry_RecallWorkflowAction extends inquiry_BaseWorkflowAction
 		{
 			$notification->setSendingModuleName('inquiry');
 			$callback = array($document->getDocumentService(), 'getNotificationParameters');
-			$recipients = new mail_MessageRecipients();
 			$emails = array();
 			foreach ($document->getPublishedReceiverArray() as $user)
 			{
 				$emails[] = $user->getEmail();
 			}
-			$recipients->setTo($emails);
+			$recipients = change_MailService::getInstance()->getRecipientsArray($emails);
+			
 			$ns->sendNotificationCallback($notification, $recipients, $callback, $document);
 		}
 		

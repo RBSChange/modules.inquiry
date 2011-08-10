@@ -20,8 +20,7 @@ class inquiry_RecallAuthorWorkflowAction extends inquiry_BaseWorkflowAction
 		{
 			$notification->setSendingModuleName('inquiry');
 			$callback = array($document->getDocumentService(), 'getNotificationParameters');
-			$recipients = new mail_MessageRecipients();
-			$recipients->setTo(array($document->getAuthorEmail()));
+			$recipients = change_MailService::getInstance()->getRecipientsArray($document->getAuthorEmail());
 			$ns->sendNotificationCallback($notification, $recipients, $callback, $document);
 		}		
 		

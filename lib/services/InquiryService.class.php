@@ -305,14 +305,12 @@ class inquiry_InquiryService extends f_persistentdocument_DocumentService
 	 */
 	public function getNotificationRecipients($inquiry)
 	{
-		$recipients = new mail_MessageRecipients();
 		$emails = array($inquiry->getAuthorEmail());
 		foreach ($inquiry->getReceiverArray() as $receiver)
 		{
 			$emails[] = $receiver->getEmail();
 		}
-		$recipients->setTo($emails);
-		return $recipients;
+		return $emails;
 	}	
 	
 	/**
