@@ -18,7 +18,7 @@ class inquiry_Setup extends object_InitDataSetup
 		{
 			uixul_DocumentEditorService::getInstance()->compileEditorsConfig();
 		}
-		f_permission_PermissionService::getInstance()->addImportInRight('form', 'inquiry', 'form.rights');
+		change_PermissionService::getInstance()->addImportInRight('form', 'inquiry', 'form.rights');
 	}
 
 	/**
