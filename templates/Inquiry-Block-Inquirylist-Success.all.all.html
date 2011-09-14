@@ -3,7 +3,7 @@
 <ul tal:condition="inquiries" class="normal">
 	<tal:block tal:repeat="inquiry inquiries">
 		<li>
-			[${inquiry/getProcessingStatusLabelAsHtml}] <a change:link="document inquiry">${inquiry/getLabel}</a> - <tal:block tal:replace="datetime:inquiry/getCreationdate,from=gmt" /> 
+			[${structure inquiry/getProcessingStatusLabelAsHtml}] <a change:link="document inquiry">${inquiry/getLabel}</a> - <tal:block tal:replace="datetime:inquiry/getCreationdate,from=gmt" /> 
 		</li>	
 	</tal:block>
 </ul>

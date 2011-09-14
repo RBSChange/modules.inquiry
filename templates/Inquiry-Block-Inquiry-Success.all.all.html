@@ -2,7 +2,7 @@
 
 <ul class="normal">
 	<li><strong>${trans:m.inquiry.frontoffice.inquiry-date,lab,ucf}</strong> <tal:block tal:replace="datetime:inquiry/getCreationdate,from=gmt" /></li>
-	<li><strong>${trans:m.inquiry.frontoffice.inquiry-status,lab,ucf}</strong> ${inquiry/getProcessingStatusLabelAsHtml}</li>
+	<li><strong>${trans:m.inquiry.frontoffice.inquiry-status,lab,ucf}</strong> ${structure inquiry/getProcessingStatusLabelAsHtml}</li>
 </ul>
 
 <h3 change:h="">${trans:m.inquiry.frontoffice.inquiry-data,ucf}</h3>
@@ -59,11 +59,11 @@
 	<tal:block tal:repeat="message messages">
 		<li class="from-author" tal:condition="not: message/getIsFromStaff">
 			<p><strong>${trans:m.inquiry.frontoffice.message-sent-by-author,ucf} <tal:block tal:replace="datetime:message/getMessageDate,from=gmt" /></strong></p>
-			<blockquote>${message/getContentsAsHtml}</blockquote>
+			<blockquote>${structure message/getContentsAsHtml}</blockquote>
 		</li>
 		<li class="from-staff" tal:condition="message/getIsFromStaff">
 			<p><strong>${trans:m.inquiry.frontoffice.message-sent-by-staff,ucf} <tal:block tal:replace="datetime:message/getMessageDate,from=gmt" /></strong></p>
-			<blockquote>${message/getContentsAsHtml}</blockquote>
+			<blockquote>${structure message/getContentsAsHtml}</blockquote>
 		</li>	
 	</tal:block>
 </ul>
