@@ -1,15 +1,3 @@
-treechildren::-moz-tree-image(modules_inquiry_inquiryform){
-	list-style-image: url(/changeicons/small/inquiry.png);
-}
-treechildren::-moz-tree-image(modules_inquiry_inquiry){
-	list-style-image: url(/changeicons/small/inquiry.png);
-}
-treechildren::-moz-tree-image(modules_message_message){
-	list-style-image: url(/changeicons/small/mail.png);
-}
-treechildren::-moz-tree-image(modules_inquiry_message){
-	list-style-image: url(/changeicons/small/mail.png);
-}
 wdialog[template="Response"] .dialog-header{
 	background: url(/changeicons/small/inquiry.png) transparent center  left no-repeat!important;
 }
