@@ -66,7 +66,7 @@ class inquiry_FromPublicationListener
 	 */
 	private function rePublishRelatedForms($document)
 	{
-		if ($document instanceof users_persistentdocument_backenduser)
+		if ($document instanceof users_persistentdocument_user)
 		{
 			foreach ($document->getInquiryformArrayInverse() as $form)
 			{

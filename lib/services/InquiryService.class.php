@@ -163,7 +163,7 @@ class inquiry_InquiryService extends f_persistentdocument_DocumentService
 		if ($author !== null)
 		{
 			$backUri = join(',', array('inquiry', 'openDocument', 'modules_inquiry_inquiry', $document->getId(), 'resume'));
-			$userUri = join(',' , array('users', 'openDocument', 'modules_users_websitefrontenduser', $author->getId(), 'resume'));
+			$userUri = join(',' , array('users', 'openDocument', 'modules_users_user', $author->getId(), 'resume'));
 			$resume['properties']['author'] = array("uri" => $userUri, "label" => $author->getLabel(), "backuri" => $backUri);
 		}
 		else
@@ -250,7 +250,7 @@ class inquiry_InquiryService extends f_persistentdocument_DocumentService
 	}
 	
 	/**
-	 * @param users_persistentdocument_websitefrontenduser $user
+	 * @param users_persistentdocument_user $user
 	 * @return inquiry_persistentdocument_inquiry[]
 	 */
 	public function getByAuthor($user)
@@ -260,7 +260,7 @@ class inquiry_InquiryService extends f_persistentdocument_DocumentService
 	
 	/**
 	 * @param inquiry_persistentdocument_inquiry $inquiry
-	 * @return users_persistentoducment_websitefrontenduser | null
+	 * @return users_persistentoducment_user | null
 	 */
 	public function getAuthorDocument($inquiry)
 	{
@@ -273,8 +273,7 @@ class inquiry_InquiryService extends f_persistentdocument_DocumentService
 			}
 			catch (Exception $e)
 			{
-				// User doesn't exist any more...
-				$e; // Avoid Eclipse warning...
+				Framework::exception($e);
 			}
 		}
 		return null;

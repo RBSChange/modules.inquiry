@@ -2,7 +2,7 @@
 class inquiry_persistentdocument_inquiry extends inquiry_persistentdocument_inquirybase implements form_Response
 {
 	/**
-	 * @return users_persistentdocument_websitefrontenduser | null
+	 * @return users_persistentdocument_user | null
 	 */
 	public function getAuthorDocument()
 	{

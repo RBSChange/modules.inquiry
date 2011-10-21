@@ -103,7 +103,7 @@ class inquiry_InquiryformService extends form_BaseformService
 		$inquiry = inquiry_InquiryService::getInstance()->getNewDocumentInstance();
 		$inquiry->setLabel('temporary-label');
 		$inquiry->setFormId($form->getId());
-		$inquiry->setWebsiteId(website_WebsiteModuleService::getInstance()->getCurrentWebsite()->getId());
+		$inquiry->setWebsiteId(website_WebsiteService::getInstance()->getCurrentWebsite()->getId());
 		$inquiry->setStartTaskId($form->getStartTaskId());
 		foreach ($this->getPublishedReceiverIds($form) as $userId)
 		{

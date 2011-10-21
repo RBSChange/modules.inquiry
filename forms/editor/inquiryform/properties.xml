@@ -19,7 +19,7 @@
 	</section>
 	<section labeli18n="m.inquiry.bo.general.inquiries-creation">
 		<field name="startTaskId" />
-		<field name="receiver" moduleselector="users" allow="modules_users_backenduser,modules_users_backendgroup" />
+		<field name="receiver" moduleselector="users" allow="modules_users_user,modules_users_backendgroup" />
 		<field name="inbox" />
 	</section>
 	<section labeli18n="m.inquiry.bo.general.notifications">
