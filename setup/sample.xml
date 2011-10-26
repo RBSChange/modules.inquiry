@@ -7,8 +7,8 @@
 	<binding fileName="modules/form/persistentdocument/import/form_binding.xml" />
 	<binding fileName="modules/inquiry/persistentdocument/import/inquiry_binding.xml" />
 
-	<backenduser byLogin="wwwadmin" id="wwwadmin" />
-	
+	<documentRef type="modules_users/user" id="wwwadmin" byLogin="wwwadmin" />
+		
 	<systemfolder module="notification" relatedmodule="inquiry">
 		<notification codename="modules_inquiry/messageFromAuthor" id="n1"
 			label="Message envoyé par le demandeur"
