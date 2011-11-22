@@ -67,6 +67,6 @@
 		</model>
 	</models>
 	<actions>
-		<action name="createInquiryform" single="true" permission="Insert_inquiryform" icon="add" label="&amp;modules.inquiry.bo.actions.Create-inquiryform;" />
+		<action name="createInquiryform" single="true" permission="Insert_inquiryform" icon="add" labeli18n="m.inquiry.bo.actions.Create-inquiryform" />
 	</actions>
 </perspective>

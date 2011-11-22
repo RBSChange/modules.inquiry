@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <i18n baseKey="m.inquiry.bo.doceditor.property" lcid="en_GB">
   <key id="total-count">total count</key>
-  <key id="to-staff-message-count">messages sent to website staff</key>
-  <key id="from-staff-message-count">messages sent by author</key>
+  <key id="to-staff-message-count">messages sent to the website staff</key>
+  <key id="from-staff-message-count">messages sent by the author</key>
+  <key id="author">author</key>
+  <key id="form">original form</key>
+  <key id="message-count">number of messages</key>
+  <key id="processing-status">status</key>
 </i18n>

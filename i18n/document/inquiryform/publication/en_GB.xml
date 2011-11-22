@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.inquiry.document.inquiryform.publication" lcid="en_GB">
+  <key id="no-published-receiver">a request form must have at least one active recipient in order to be publishable</key>
+  <key id="no-published-workflow">the selected request processing workflow must be active for a request form to be publishable</key>
+</i18n>

@@ -2,4 +2,18 @@
 <i18n baseKey="m.inquiry.document.inquiryform" lcid="en_GB">
   <include id="m.form.document.baseform"/>
   <key id="document-name">inquiry form</key>
+  <key id="closeinquirynotification">closing the inquiry</key>
+  <key id="closeinquirynotification-help">Notification sent during the closing of the inquiry.</key>
+  <key id="inbox">inbox</key>
+  <key id="inbox-help">The folder for the "Requests" module where new requests will be saved. If left blank, requests will be saved at the module's root in the administration interface.</key>
+  <key id="messagebyauthornotification">new message from the requester</key>
+  <key id="messagebyauthornotification-help">Notification sent when the requester sends a new message.</key>
+  <key id="messagebyreceivernotification">new message from a recipient</key>
+  <key id="messagebyreceivernotification-help">Notification sent when one of the recipients sends a new message.</key>
+  <key id="receiver">recipients</key>
+  <key id="receiver-help">These are the groups and/or users authorized to answer requests submitted through this form.</key>
+  <key id="secured">secure</key>
+  <key id="secured-help">A secure form can only be filled in by authenticated users.</key>
+  <key id="starttaskid">workflow task</key>
+  <key id="starttaskid-help">This task identifies the workflow to launch for each request created through this form.</key>
 </i18n>

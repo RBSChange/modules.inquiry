@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.inquiry.bo.blocks.inquirylist" lcid="en_GB">
+  <key id="nbitemperpage">inquiries per page</key>
+  <key id="nbitemperpage-help">Number of inquiries per page.</key>
+  <key id="title">my inquiries</key>
+</i18n>

@@ -3,6 +3,10 @@
   <key id="module-name">inquiry</key>
   <key id="tree-root-name">inquiry</key>
   <key id="system-folder-name">inquiry</key>
-  <key id="default-mail-label">your e-mail address</key>
+  <key id="default-mail-label">your email address</key>
   <key id="notifications">notifications</key>
+  <key id="inquiries-creation">inquiry creation</key>
+  <key id="inquiry-response-title">reply to an inquiry</key>
+  <key id="open-inquiry">open the inquiry</key>
+  <key id="open-inquiry-help">A reply to an inquiry is made from the "Messages" tab of the inquiry editing form.</key>
 </i18n>
