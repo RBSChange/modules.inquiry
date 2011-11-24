@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <i18n baseKey="m.inquiry.document.message" lcid="en_GB">
-	<key id="document-name">message</key>
-	<key id="sender">sender</key>
-	<key id="creationdate">sending date</key>
-	<key id="contents">contents</key>
+  <key id="document-name">message</key>
+  <key id="sender">sender</key>
+  <key id="creationdate">sending operation date</key>
+  <key id="contents">content</key>
+  <key id="label-from-staff">message from the site's team sent on {date}</key>
+  <key id="label-to-staff">message from the requester sent on {date}</key>
 </i18n>

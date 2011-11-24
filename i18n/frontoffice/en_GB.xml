@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <i18n baseKey="m.inquiry.frontoffice" lcid="en_GB">
-  <key id="error-sending-message">an error occurred while sending your message. Please enter it again.</key>
+  <key id="error-sending-message">An error occurred while sending your message. Please enter it again.</key>
   <key id="success-sending-message">Your message has been sent.</key>
   <key id="your-message">your message</key>
+  <key id="author-login">Are you the author of this request?</key>
+  <key id="close">close</key>
+  <key id="error-no-contents">You must enter a message.</key>
+  <key id="error-secured-form">This request form can only be accessed by registered users.</key>
+  <key id="inquiry-data">data submitted with the request</key>
+  <key id="inquiry-date">creation date</key>
+  <key id="inquiry-list">my inquiries</key>
+  <key id="inquiry-status">status</key>
+  <key id="message-edition">editing a message</key>
+  <key id="message-preview">preview the message</key>
+  <key id="message-sent-by-author">message from the requester</key>
+  <key id="message-sent-by-staff">message from one of the recipients</key>
+  <key id="messages-for-inquiry">messages related to this request</key>
+  <key id="no-message-for-this-inquiry">There is no message for this request yet.</key>
+  <key id="no-new-message-on-closed-inquiries">No message can be sent on a closed request.</key>
+  <key id="preview">preview</key>
+  <key id="receiver-login">Are you a recipient of this request?</key>
+  <key id="send">send</key>
+  <key id="write-messages-for-inquiry">send a message related to this request</key>
 </i18n>

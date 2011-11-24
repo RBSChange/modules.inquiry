@@ -14,11 +14,11 @@
 				<xul:cmessageinfo anonid="message" />
 				<xul:scrollbox anonid="scrollctrl" flex="1" class="editordatacontainer" orient="vertical">
 					<xul:groupbox class="messageForm" anonid="messageForm">
-						<xul:caption label="&amp;modules.inquiry.bo.doceditor.panel.messages.Title;" />
+						<xul:caption label="${trans:m.inquiry.bo.doceditor.panel.messages.Title,ucf,attr}" />
 						<xul:vbox>
 							<xul:cfield name="messageContents" anonid="field_messageContents" fieldtype="longtext" cols="100" hidehelp="true" />
 							<xul:hbox>
-								<xul:button anonid="sendMessageButton" label="&amp;modules.inquiry.bo.doceditor.panel.messages.Send;" image="{IconsBase}/small/mail.png" />
+								<xul:button anonid="sendMessageButton" label="${trans:m.inquiry.bo.doceditor.panel.messages.Send,ucf,attr}" image="{IconsBase}/small/mail.png" />
 								<xul:hbox anonid="tasksbuttons"></xul:hbox>
 							</xul:hbox>
 						</xul:vbox>
@@ -162,14 +162,14 @@
 						}
 						else
 						{
-							this.showTextMessage("&amp;modules.inquiry.bo.doceditor.panel.messages.Success-sending-message;");
+							this.showTextMessage("${trans:m.inquiry.bo.doceditor.panel.messages.Success-sending-message,ucf,js}");
 							this.fireInitializeComplete(result);
 							node.value = '';
 						}
 					}
 					else
 					{
-						this.showErrorMessage("&amp;modules.inquiry.bo.doceditor.panel.messages.Error-no-message-to-send;");
+						this.showErrorMessage("${trans:m.inquiry.bo.doceditor.panel.messages.Error-no-message-to-send,ucf,js}");
 					}
 				]]></body>
 			</method>
@@ -190,15 +190,15 @@
 					</xul:columns>
 					<xul:rows>
 						<xul:row>
-							<xul:label value="&amp;modules.inquiry.document.message.Creationdate;" />
+							<xul:label value="${trans:m.inquiry.document.message.Creationdate,ucf,attr}" />
 							<xul:label class="allow-text-selection" xbl:inherits="xbl:text=date" />
 						</xul:row>
 						<xul:row>
-							<xul:label value="&amp;modules.inquiry.document.message.Sender;" />
+							<xul:label value="${trans:m.inquiry.document.message.Sender,ucf,attr}" />
 							<xul:label class="allow-text-selection" xbl:inherits="xbl:text=authorFullName" />
 						</xul:row>
 						<xul:row>
-							<xul:label value="&amp;modules.inquiry.document.message.Contents;" />
+							<xul:label value="${trans:m.inquiry.document.message.Contents,ucf,attr}" />
 							<xul:hbox flex="1">
 								<html:div flex="1" anonid="contents" class="allow-text-selection"><xbl:children /></html:div>
 							</xul:hbox>
@@ -240,16 +240,16 @@
 		<xbl:content>
 			<xul:vbox flex="1">
 				<xul:hbox class="dialog-header">
-					<xul:label value="&amp;modules.inquiry.bo.general.Inquiry-response-title;" class="dialog-title" />
+					<xul:label value="${trans:m.inquiry.bo.general.Inquiry-response-title,ucf,attr}" class="dialog-title" />
 					<xul:spacer flex="1" />
 					<xul:vbox pack="center">
-						<xul:toolbarbutton height="16" width="16" image="{IconsBase}/small/delete.png" oncommand="onCancel();" tooltiptexts="&amp;modules.uixul.bo.dialog.Cancel;" />
+						<xul:toolbarbutton height="16" width="16" image="{IconsBase}/small/delete.png" oncommand="onCancel();" tooltiptexts="${trans:m.uixul.bo.dialog.Cancel,ucf,attr}" />
 					</xul:vbox>
 				</xul:hbox>
 				<xul:vbox>
-					<xul:description value="&amp;modules.inquiry.bo.general.Open-inquiry-help;" />
+					<xul:description value="${trans:m.inquiry.bo.general.Open-inquiry-help,ucf,attr}" />
 					<xul:spacer height="15" />
-					<xul:button anonid="submitButton" oncommand="onOk();" label="&amp;modules.inquiry.bo.general.Open-inquiry;" />
+					<xul:button anonid="submitButton" oncommand="onOk();" label="${trans:m.inquiry.bo.general.Open-inquiry,ucf,attr}" />
 				</xul:vbox>
 			</xul:vbox>
 		</xbl:content>

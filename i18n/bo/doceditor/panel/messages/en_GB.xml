@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <i18n baseKey="m.inquiry.bo.doceditor.panel.messages" lcid="en_GB">
-  <key id="title">send new message</key>
+  <key id="title">send a new message</key>
   <key id="send">send</key>
-  <key id="error-no-message-to-send">you must set a content to send.</key>
-  <key id="success-sending-message">message successfully sent.</key>
+  <key id="error-no-message-to-send">you must enter content to send.</key>
+  <key id="success-sending-message">message sent successfully.</key>
+  <key id="error-not-receiver">you are not a recipient of this inquiry.</key>
+  <key id="error-task-not-for-you">you are not allowed to perform this task.</key>
+  <key id="error-unknown-task-type">the type of this task is unknown.</key>
 </i18n>
