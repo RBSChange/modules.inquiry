@@ -27,23 +27,7 @@ class inquiry_persistentdocument_message extends inquiry_persistentdocument_mess
 		$parser = new website_BBCodeParser();
 		$this->setContents($parser->convertBBCodeToXml($bbcode, 'default'));
 	}
-	
-	/**
-	 * Get the readable message date.
-	 * @return String
-	 */
-	public function getMessageDate()
-	{
-		if (defined('DEFAULT_TIMEZONE'))
-		{
-			date_default_timezone_set(DEFAULT_TIMEZONE);
-		}
-		$offset = intval(date('Z'));
-		$creationDate = date_Calendar::getInstance($this->getCreationdate());
-		$creationDate->add(date_Calendar::SECOND, $offset);
-		return $creationDate->toString();
-	}
-	
+		
 	/**
 	 * @return users_persistentdocument_user | null
 	 */
@@ -91,5 +75,23 @@ class inquiry_persistentdocument_message extends inquiry_persistentdocument_mess
 			return $author->getFullnameAsHtml();
 		}
 		return $this->getAuthorAsHtml();
+	}
+	
+	// Deprecated.
+	
+	
+	/**
+	 * @deprecated (will be removed in 4.0) use getCreationdate or getUICreationdate instead
+	 */
+	public function getMessageDate()
+	{
+		if (defined('DEFAULT_TIMEZONE'))
+		{
+			date_default_timezone_set(DEFAULT_TIMEZONE);
+		}
+		$offset = intval(date('Z'));
+		$creationDate = date_Calendar::getInstance($this->getCreationdate());
+		$creationDate->add(date_Calendar::SECOND, $offset);
+		return $creationDate->toString();
 	}
 }

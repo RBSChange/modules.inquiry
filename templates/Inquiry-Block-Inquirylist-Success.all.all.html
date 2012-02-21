@@ -1,13 +1,22 @@
-<h2 change:h="">${trans:m.inquiry.frontoffice.inquiry-list,ucf}</h2>
+<h1 change:h="">${trans:m.inquiry.frontoffice.inquiry-list,ucf}</h1>
 
-<ul tal:condition="inquiries" class="normal">
-	<tal:block tal:repeat="inquiry inquiries">
-		<li>
-			[${inquiry/getProcessingStatusLabelAsHtml}] <a change:link="document inquiry">${inquiry/getLabel}</a> - <tal:block change:datetime="inquiry/getCreationdate" /> 
-		</li>	
-	</tal:block>
-</ul>
-
-<tal:block change:paginator="inquiries"/>
-
-<p tal:condition="not: inquiries">${trans:m.inquiry.frontoffice.no-inquiries,ucf}</p>
+<tal:block tal:condition="inquiries">
+	<table class="normal">
+		<thead>
+			<tr>
+				<th>${trans:m.inquiry.frontoffice.inquiry,ucf}</th>
+				<th>${trans:m.inquiry.frontoffice.inquiry-status,ucf}</th>
+				<th>${trans:m.inquiry.frontoffice.inquiry-date,ucf}</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr tal:repeat="inquiry inquiries" class="${alternateclass:inquiryIndex}">
+				<td><a change:link="document inquiry">${inquiry/getLabel}</a></td>
+				<td>${inquiry/getProcessingStatusLabelAsHtml}</td>
+				<td>${datetime:inquiry/getUICreationdate}</td>
+			</tr>
+		</tbody>
+	</table>
+	<tal:block change:paginator="inquiries" />
+</tal:block>
+<p class=" normal" tal:condition="not: inquiries">${trans:m.inquiry.frontoffice.no-inquiries,ucf}</p>

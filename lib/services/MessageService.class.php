@@ -203,7 +203,7 @@ class inquiry_MessageService extends f_persistentdocument_DocumentService
 		{
 			$ns = $notification->getDocumentService();
 			$notification->setSendingModuleName('inquiry');
-			$callback = array($this, 'getNotificationParameters');
+			$callback = array($this, $isFromStaff ? 'getToReceiverNotificationParameters' : 'getNotificationParametersForReceiver');
 			$recipients = $this->getNotificationRecipients($message);
 			$ns->sendNotificationCallback($notification, $recipients, $callback, $message);
 		}
@@ -219,6 +219,17 @@ class inquiry_MessageService extends f_persistentdocument_DocumentService
 		$inquiryParameters = $target->getDocumentService()->getNotificationParameters($target);
 		$messageParameters = array('messageContents' => $message->getContentsAsHtml());
 		return array_merge($inquiryParameters, $messageParameters);
+	}
+	
+	/**
+	 * @param inquiry_persistentdocument_message $message
+	 * @return Array<String=>String>
+	 */
+	public function getNotificationParametersForReceiver($message)
+	{
+		$parameters = $this->getNotificationParameters($message);
+		$parameters['inquiryLink'] = '<a href="' . Framework::getUIBaseUrl() . '/admin" class="link">' . $parameters['inquiryLabel'] . '</a>';
+		return $parameters;
 	}
 	
 	/**

@@ -1,9 +1,5 @@
-<h2 change:h="">${inquiry/getLabelAsHtml}</h2>
+<h1 change:h="">${inquiry/getLabelAsHtml}</h1>
 
-<h3 change:h="">${trans:m.inquiry.frontoffice.author-login,ucf}</h3>
+<h2 change:h="">${trans:m.inquiry.frontoffice.author-login,ucf}</h2>
 
-<tal:block change:block="" module="users" name="Authentication" hideRegistrationLinks="true" />
-
-<h3 change:h="">${trans:m.inquiry.frontoffice.receiver-login,ucf}</h3>
-
-<tal:block change:block="" module="users" name="Adminauthentication" />
+<tal:block change:block="" module="users" name="Authentication" hideRegistrationLinks="true" __illegalAccessPage="${currenturl:}" />

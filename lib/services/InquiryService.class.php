@@ -232,17 +232,16 @@ class inquiry_InquiryService extends f_persistentdocument_DocumentService
 		);
 		if ($value && isset($row['isFile']) && $row['isFile'] == 'true')
 		{
-			try 
+			$file = DocumentHelper::getDocumentInstanceIfExists($value);
+			if ($file) 
 			{
-				$file = DocumentHelper::getDocumentInstance($value);
 				$infos['isFile'] = true;
 				$infos['href'] = LinkHelper::getUIActionLink('media', 'BoDisplay')->setQueryParameter('cmpref', $value)
 					->setQueryParameter('lang', $file->getI18nInfo()->getVo())->setQueryParameter('forceDownload', 'true')->getUrl();
 				$infos['linklabel'] = $file->getLabel();
 			}
-			catch (Exception $e)
+			else
 			{
-				$e; // Avoid Eclipse warning...
 				$infos['mailValue'] = LocaleService::getInstance()->transBO('m.form.bo.general.unexisting-file', array('ucf'), array('id' => $value));
 			}
 		}
@@ -267,19 +266,10 @@ class inquiry_InquiryService extends f_persistentdocument_DocumentService
 		$authorId = $inquiry->getAuthorId();
 		if ($authorId !== null)
 		{
-			try 
-			{
-				return DocumentHelper::getDocumentInstance($authorId);
-			}
-			catch (Exception $e)
-			{
-				// User doesn't exist any more...
-				$e; // Avoid Eclipse warning...
-			}
+			return DocumentHelper::getDocumentInstanceIfExists($authorId);
 		}
 		return null;
-	}
-	
+	}	
 
 	/**
 	 * @param inquiry_persistentdocument_inquiry $inquiry

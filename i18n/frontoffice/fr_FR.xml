@@ -18,6 +18,7 @@
   <key id="author-login">Vous êtes l'auteur de cette demande ?</key>
   <key id="receiver-login">Vous êtes un destinataire de cette demande ?</key>
   <key id="no-new-message-on-closed-inquiries">Aucun message ne peut être envoyé sur une demande clôturée.</key>
+  <key id="inquiry">demande</key>
   <key id="inquiry-date">date de création</key>
   <key id="inquiry-status">statut</key>
   <key id="error-no-contents">vous devez saisir un message.</key>

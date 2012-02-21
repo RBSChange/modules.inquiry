@@ -16,7 +16,7 @@ class inquiry_BlockInquiryAction extends website_BlockAction
 		{
 			return $this->getLoginView($request, $inquiry);
 		}
-		
+				
 		return $this->getSuccessView($request, $inquiry);
 	}
 	
@@ -84,31 +84,11 @@ class inquiry_BlockInquiryAction extends website_BlockAction
 		
 		$taskLabel = $request->getParameter('website_BlockAction_submit');
 		$taskLabel = $taskLabel[$this->getBlockId()]['task'];
-		if ($this->authMode == 'author')
+		foreach ($inquiry->getDocumentService()->getMessageTasksForAuthor($inquiry) as $taskId => $messageTaskLabel)
 		{
-			foreach ($inquiry->getDocumentService()->getMessageTasksForAuthor($inquiry) as $taskId => $messageTaskLabel)
+			if ($taskLabel == $messageTaskLabel)
 			{
-				if ($taskLabel == $messageTaskLabel)
-				{
-					return $this->doExecuteMessageTask($request, $response, $inquiry, $taskId);
-				}
-			}
-		}
-		else 
-		{
-			foreach (TaskHelper::getPendingTasksForCurrentBackendUserByDocumentId($inquiry->getId()) as $task)
-			{
-				if ($taskLabel == $task->getWorkitem()->getLabelAsHtml())
-				{
-					return $this->doExecuteUserTask($request, $response, $inquiry, $task);
-				}
-			}
-			foreach ($inquiry->getDocumentService()->getMessageTasksForReceiver($inquiry) as $taskId => $messageTaskLabel)
-			{
-				if ($taskLabel == $messageTaskLabel)
-				{
-					return $this->doExecuteMessageTask($request, $response, $inquiry, $taskId);
-				}
+				return $this->doExecuteMessageTask($request, $response, $inquiry, $taskId);
 			}
 		}
 		$this->addError(LocaleService::getInstance()->transFO('m.inquiry.frontoffice.invalid-task', array('ucf')));
@@ -126,25 +106,10 @@ class inquiry_BlockInquiryAction extends website_BlockAction
 	{
 		if ($taskId == 'CLOSE')
 		{
-			$inquiry->getDocumentService()->setCaseParameter($inquiry, 'CLOSED_BY', $this->authMode);
+			$inquiry->getDocumentService()->setCaseParameter($inquiry, 'CLOSED_BY', 'author');
 		}
 		
 		workflow_WorkflowEngineService::getInstance()->executeMessageTask($inquiry->getId(), $taskId);
-		
-		HttpController::getInstance()->redirectToUrl(LinkHelper::getCurrentUrlComplete());
-		return website_BlockView::NONE;
-	}
-	
-	/**
-	 * @param f_mvc_Request $request
-	 * @param f_mvc_Response $response
-	 * @param inquiry_persistentodcument_inquiry $inquiry
-	 * @param task_persistentdocument_usertask $task
-	 * @return String
-	 */
-	protected function doExecuteUserTask($request, $response, $inquiry, $task)
-	{
-		TaskHelper::getUsertaskService()->execute($task, '', '', $task->getUser());
 		
 		HttpController::getInstance()->redirectToUrl(LinkHelper::getCurrentUrlComplete());
 		return website_BlockView::NONE;
@@ -172,23 +137,9 @@ class inquiry_BlockInquiryAction extends website_BlockAction
 		}
 		
 		$tasks = array();
-		if ($this->authMode == 'author')
+		foreach ($inquiry->getDocumentService()->getMessageTasksForAuthor($inquiry) as $taskLabel)
 		{
-			foreach ($inquiry->getDocumentService()->getMessageTasksForAuthor($inquiry) as $taskLabel)
-			{
-				$tasks[] = $taskLabel;
-			}
-		}
-		else 
-		{
-			foreach (TaskHelper::getPendingTasksForCurrentBackendUserByDocumentId($inquiry->getId()) as $task)
-			{
-				$tasks[] = $task->getWorkitem()->getLabelAsHtml();
-			}
-			foreach ($inquiry->getDocumentService()->getMessageTasksForReceiver($inquiry) as $taskLabel)
-			{
-				$tasks[] = $taskLabel;
-			}
+			$tasks[] = $taskLabel;
 		}
 		$request->setAttribute('tasks', $tasks);
 		
@@ -201,15 +152,9 @@ class inquiry_BlockInquiryAction extends website_BlockAction
 	 */
 	private function getLoginView($request, $inquiry)
 	{
-		$request->setAttribute('inquiry', $inquiry);
-		
+		$request->setAttribute('inquiry', $inquiry);		
 		return 'Login';
 	}
-	
-	/**
-	 * @var string
-	 */
-	private $authMode;
 	
 	/**
 	 * @param f_mvc_Request $request
@@ -225,21 +170,12 @@ class inquiry_BlockInquiryAction extends website_BlockAction
 		$currentUser = users_UserService::getInstance()->getCurrentFrontEndUser();
 		if ($currentUser !== null && $currentUser == $inquiry->getAuthorDocument())
 		{
-			$this->authMode = 'author';
-			return true;
-		}
-		
-		$currentUser = users_UserService::getInstance()->getCurrentBackEndUser();
-		if ($currentUser !== null && in_array($currentUser, $inquiry->getReceiverArray()))
-		{
-			$this->authMode = 'receiver';
 			return true;
 		}
 		
 		$inquiryPassword = $inquiry->getPassword();
 		if ($inquiryPassword !== null && $request->hasParameter('password') && $inquiryPassword == $request->getParameter('password'))
 		{
-			$this->authMode = 'author';
 			return true;
 		}
 		
@@ -253,13 +189,19 @@ class inquiry_BlockInquiryAction extends website_BlockAction
 	private function sendMessage($request, $inquiry)
 	{
 		$contents = $request->getParameter('contents');
-		if ($this->authMode == 'author')
-		{
-			inquiry_MessageService::getInstance()->sendToStaff($inquiry, $contents);
-		}
-		else
-		{
-			inquiry_MessageService::getInstance()->sendFromStaff($inquiry, $contents);
-		}
+		inquiry_MessageService::getInstance()->sendToStaff($inquiry, $contents);
+	}
+	
+	// Deprecated.
+	
+	/**
+	 * @deprecated (will be removed in 4.0)
+	 */
+	protected function doExecuteUserTask($request, $response, $inquiry, $task)
+	{
+		TaskHelper::getUsertaskService()->execute($task, '', '', $task->getUser());
+	
+		HttpController::getInstance()->redirectToUrl(LinkHelper::getCurrentUrlComplete());
+		return website_BlockView::NONE;
 	}
 }
