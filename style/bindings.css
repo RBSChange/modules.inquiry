@@ -1,8 +1,5 @@
-cdocumenteditor#edt_inquiry_inquiry cmessagespanel{
-	-moz-binding: url(binding:modules.inquiry.cInquiryEditor#cMessagesPanel);
-}
 cdocumenteditor#edt_inquiry_inquiry cmessagespanel section.message{
-	-moz-binding: url(binding:modules.inquiry.cInquiryEditor#messageSection);
+	-moz-binding: url(binding:modules.inquiry.editor.inquiry.messages#messageSection);
 }
 wdialog[template="Response"]{
 	-moz-binding: url(binding:modules.inquiry.cInquiryEditor#cResponseDialog);
