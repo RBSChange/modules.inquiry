@@ -213,13 +213,13 @@ class inquiry_InquiryformService extends form_BaseformService
 		
 		if (count($this->getPublishedReceiverIds($document)) < 1)		
 		{
-			$this->setActivePublicationStatusInfo($document, '&modules.inquiry.document.inquiryform.publication.no-published-receiver;');
+			$this->setActivePublicationStatusInfo($document, 'm.inquiry.document.inquiryform.publication.no-published-receiver');
 			return false;
 		}
 		
 		if ($this->getInquiryWorkflow($document) === null)		
 		{
-			$this->setActivePublicationStatusInfo($document, '&modules.inquiry.document.inquiryform.publication.no-published-workflow;');
+			$this->setActivePublicationStatusInfo($document, 'm.inquiry.document.inquiryform.publication.no-published-workflow');
 			return false;
 		}
 		
