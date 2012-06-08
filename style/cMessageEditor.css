@@ -1,16 +1,19 @@
 section[messageType="toStaff"] groupbox{
 	border: 1px solid #6a6 !important;
 	-moz-border-radius: 5px !important;
+	border-radius: 5px !important;
 	background-color: #efe !important;
 }
 section[messageType="fromStaff"] groupbox{
 	border: 1px solid #66a !important;
 	-moz-border-radius: 5px !important;
+	border-radius: 5px !important;
 	background-color: #eef !important;
 }
 groupbox.messageForm{
 	border: 1px solid #bbb !important;
 	-moz-border-radius: 5px !important;
+	border-radius: 5px !important;
 	background-color: #f9f9f9 !important;
 }
 div[anonid="contents"]{
