@@ -147,8 +147,12 @@ class inquiry_InquiryService extends f_persistentdocument_DocumentService
 	 */
 	public function getResume($document, $forModuleName, $allowedSections = null)
 	{
-		$resume = parent::getResume($document, $forModuleName, $allowedSections);
-		
+		$resume = parent::getResume($document, $forModuleName, $allowedSections);		
+		if ($document->getPassword())
+		{
+			$resume['urlrewriting']['currenturl'] = LinkHelper::getDocumentUrl($document, null, array('inquiryParam' => array('password' => $document->getPassword())));
+		}
+			
 		$resume['properties']['processingStatus'] = $document->getProcessingStatusLabel();		
 		
 		$form = $document->getForm();
@@ -277,15 +281,16 @@ class inquiry_InquiryService extends f_persistentdocument_DocumentService
 	 */
 	public function getNotificationParameters($inquiry)
 	{
-		$url = LinkHelper::getDocumentUrl($inquiry);
-		$label = $inquiry->getLabelAsHtml();
+		$param = ($inquiry->getPassword()) ? array('inquiryParam' => array('password' => $inquiry->getPassword())) : array();
+		$url = LinkHelper::getDocumentUrl($inquiry, $inquiry->getLang(), $param);	
+		$label = $inquiry->getNavigationLabelAsHtml();
 		return array(
 			'inquiryId' => $inquiry->getId(), 
 			'inquiryLabel' => $label,
 			'inquiryUrl' => $url,
 			'inquiryLink' => (f_util_StringUtils::isEmpty($url) ? '' : '<a href="' . $url . '" class="link">' . $label . '</a>'),
-			'inquiryCreationdate' => date_Formatter::format($inquiry->getCreationdate()),
-			'inqiuryCreationdate' => date_Formatter::format($inquiry->getCreationdate()) // @deprecated (will be removed in 4.0)
+			'inquiryCreationdate' => date_Formatter::toDefaultDateTime($inquiry->getUICreationdate()),
+			'inqiuryCreationdate' => date_Formatter::toDefaultDateTime($inquiry->getUICreationdate()) // @deprecated (will be removed in 4.0)
 		);
 	}
 	
