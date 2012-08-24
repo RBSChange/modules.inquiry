@@ -224,10 +224,18 @@ class inquiry_InquiryService extends f_persistentdocument_DocumentService
 	private function getFieldInfos($row)
 	{
 		$value = htmlspecialchars($row['value']);
+		if ($row['type'] == 'date')
+		{
+			$mailValue = date_Formatter::toDefaultDate($value);
+		}
+		else
+		{
+			$mailValue = isset($row['mailValue']) ? $row['mailValue'] : $value;
+		}
 		$infos = array(
 			'isGroup' => false,
 			'label' => $row['label'],
-			'mailValue' => isset($row['mailValue']) ? $row['mailValue'] : $value,
+			'mailValue' => $mailValue,
 			'value' => $value
 		);
 		if ($value && isset($row['isFile']) && $row['isFile'] == 'true')
