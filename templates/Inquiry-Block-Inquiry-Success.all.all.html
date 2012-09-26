@@ -12,8 +12,12 @@
 <dl class="inline-items">
 	<tal:block tal:repeat="field inquiry/getResponseData">
 		<dt>${field/label}</dt>
-		<dd tal:condition="field/value">${field/value}</dd>
-		<dd tal:condition="not: field/value">-</dd>
+		
+		<dd tal:condition="field/mailValue">${field/mailValue}</dd>
+		<tal:block tal:condition="not: field/mailValue">
+			<dd tal:condition="field/value">${field/value}</dd>
+			<dd tal:condition="not: field/value">-</dd>
+		</tal:block>
 	</tal:block>
 </dl>
 
