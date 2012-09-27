@@ -6,7 +6,7 @@
 			<parameter name="nbItemPerPage" type="Integer" default-value="20" />
 		</parameters>
 	</block>
-	<block type="modules_inquiry_inquirylist" icon="list-block" label="&amp;modules.inquiry.bo.blocks.Inquirylist.Title;">
+	<block type="modules_inquiry_inquirylist" icon="list-block" label="&amp;modules.inquiry.bo.blocks.inquirylist.Title;">
 		<parameters>
 			<parameter name="nbItemPerPage" type="Integer" default-value="20" />
 		</parameters>
