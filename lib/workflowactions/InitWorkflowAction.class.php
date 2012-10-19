@@ -6,7 +6,7 @@ class inquiry_InitWorkflowAction extends inquiry_BaseWorkflowAction
 	 * @return boolean true if the execution end successfully, false in error case.
 	 */
 	public function execute()
-	{	
+	{
 		$inquiry = $this->getDocument();
 		
 		$receiverIds = DocumentHelper::getIdArrayFromDocumentArray($inquiry->getReceiverArray());
@@ -34,6 +34,24 @@ class inquiry_InitWorkflowAction extends inquiry_BaseWorkflowAction
 		if ($notification !== null)
 		{
 			$this->setCaseParameter('CLOSE_INQUIRY_NOTIFICATION_CODE', $notification->getCodename());
+		}
+		
+		$notification = $form->getCreateInquiryNotification();
+		if ($notification !== null)
+		{
+			$ns = notification_NotificationService::getInstance();
+			if ($notification instanceof notification_persistentdocument_notification)
+			{
+				$documentService = $inquiry->getDocumentService();
+				$notification->setSendingModuleName('inquiry');
+				$notification->registerCallback($documentService, 'getNotificationParameters', $inquiry);
+				$recipients = $inquiry->getReceiverArray();
+				
+				foreach ($recipients as $user)
+				{
+					$notification->sendToUser($user);
+				}
+			}
 		}
 		
 		$this->setExecutionStatus(workflow_WorkitemService::EXECUTION_SUCCESS);

@@ -16,4 +16,6 @@
   <key id="messagebyreceivernotification-help">notification envoyée lorsque l'un des destinataire envoie un nouveau message.</key>
   <key id="closeinquirynotification">clôture de la demande</key>
   <key id="closeinquirynotification-help">notification envoyée lors de la clôture de la demande.</key>
+  <key id="createinquirynotification">création de la demande</key>
+  <key id="createinquirynotification-help">notification envoyée lors de la création de la demande.</key>
 </i18n>

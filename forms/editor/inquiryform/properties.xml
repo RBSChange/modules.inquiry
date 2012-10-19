@@ -23,6 +23,7 @@
 		<field name="inbox" />
 	</section>
 	<section labeli18n="modules.inquiry.bo.general.Notifications">
+		<field name="createInquiryNotification" />
 		<field name="messageByAuthorNotification" />
 		<field name="messageByReceiverNotification" />
 		<field name="closeInquiryNotification" />
