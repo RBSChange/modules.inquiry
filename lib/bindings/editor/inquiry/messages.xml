@@ -100,7 +100,7 @@
 							
 							section.appendChild(doc.documentElement);
 						}
-						while (section = messagesNode.childNodes[i])
+						while ((section = messagesNode.childNodes[i]) != null)
 						{
 							section.setAttribute('collapsed', 'true');
 							i++;
@@ -133,7 +133,7 @@
 								button.setAttribute('taskType', task.type);
 								button.setAttribute('taskId', task.id);
 							}
-							while (button = tasksNode.childNodes[i])
+							while ((button = tasksNode.childNodes[i]) != null)
 							{
 								button.setAttribute('collapsed', 'true');
 								i++;
