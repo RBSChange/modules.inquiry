@@ -16,7 +16,7 @@
 					<xul:groupbox class="messageForm" anonid="messageForm">
 						<xul:caption label="${transui:m.inquiry.bo.doceditor.panel.messages.Title,ucf,attr}" />
 						<xul:vbox>
-							<xul:cfield name="messageContents" anonid="field_messageContents" fieldtype="longtext" cols="100" hidehelp="true" />
+							<xul:cfield name="messageContents" anonid="field_messageContents" fieldtype="longtext" cols="100" rows="20" hidehelp="true" class="template"/>
 							<xul:hbox>
 								<xul:button anonid="sendMessageButton" label="${transui:m.inquiry.bo.doceditor.panel.messages.Send,ucf,attr}" image="{IconsBase}/small/mail.png" />
 								<xul:hbox anonid="tasksbuttons"></xul:hbox>
@@ -33,6 +33,7 @@
 				var me = this;
 				var node = document.getAnonymousElementByAttribute(this, 'anonid', 'sendMessageButton');
 				node.addEventListener('command', function () { me.sendNewMessage(this); }, true);
+				this.extendMethod("fireInitializeComplete", this.initializeCompleteExtent);
 			]]></constructor>
 		
 			<property name="panelWidth" readonly="true">
@@ -61,7 +62,16 @@
 						this.showErrorMessage(result.contents.errorMessage);
 					}
 					else
-					{									
+					{		
+						var templates = result.contents.templates;
+						var fieldMessageContents = document.getAnonymousElementByAttribute(this, 'anonid', 'field_messageContents');
+						fieldMessageContents.value = '';
+						fieldMessageContents.clearSubstitutions();
+						for (var i = 0; i < templates.length; i++)
+						{
+							fieldMessageContents.addSubstitution(templates[i].label, templates[i].value);
+						}
+												
 						var messages = result.contents.messages;
 						var message;
 						var section;
@@ -146,6 +156,28 @@
 					}
 					this.mInitialized = true;
 					this.gotoTop();
+				]]></body>
+			</method>
+			
+			<method name="initializeCompleteExtent">
+				<parameter name="result" />
+				<body><![CDATA[
+				try
+				{
+					if (result.contents.varsinfo)
+					{
+						var vars = result.contents.varsinfo;
+						this.fields.contents.clearSubstitutions();
+						for (var i = 0; i < vars.length; i++)
+						{
+							field.addSubstitution(vars[i].label, vars[i].value);
+						}
+					}
+				}
+				catch (e)
+				{
+					wCore.error("page.properties.fireInitializeCompleteExtend", [result], e);
+				}
 				]]></body>
 			</method>
 			

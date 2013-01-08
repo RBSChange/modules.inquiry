@@ -12,4 +12,8 @@
 			<staticitem label="Clôturée" value="closed" />
 		</staticlist>
 	</systemfolder>
+	
+	<rootfolder module="inquiry">
+		<answertplfolder byLabel="m.inquiry.document.answertplfolder.default-name"/>
+	</rootfolder>
 </script>

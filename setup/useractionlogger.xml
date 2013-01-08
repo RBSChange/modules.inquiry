@@ -2,4 +2,6 @@
 <script>
   <binding fileName="modules/useractionlogger/persistentdocument/import/useractionlogger_binding.xml"/>
   <actiondef modulename="inquiry" actionname="insert.folder" label="modules.inquiry.bo.useractionlogger.insert-folder"/>
+  <actiondef modulename="inquiry" actionname="insert.answertemplate" label="m.inquiry.bo.useractionlogger.insert-answertemplate"/>
+  <actiondef modulename="inquiry" actionname="update.answertemplate" label="m.inquiry.bo.useractionlogger.update-answertemplate"/>
 </script>

@@ -13,3 +13,9 @@ treechildren::-moz-tree-image(modules_inquiry_message){
 wdialog[template="Response"] .dialog-header{
 	background: url(/changeicons/small/inquiry.png) transparent center  left no-repeat!important;
 }
+treechildren::-moz-tree-image(modules_inquiry_answertemplate){
+	list-style-image: url(/changeicons/small/document.png);
+}
+treechildren::-moz-tree-image(modules_inquiry_answertplfolder){
+	list-style-image: url(/changeicons/small/folder.png);
+}

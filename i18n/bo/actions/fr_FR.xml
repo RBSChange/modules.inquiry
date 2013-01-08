@@ -2,4 +2,5 @@
 <i18n baseKey="m.inquiry.bo.actions" lcid="fr_FR">
   <key id="create_">créer</key>
   <key id="create-inquiryform">créer un formulaire de demande</key>
+  <key id="create-answertemplate">créer un modèle de réponse</key>
 </i18n>

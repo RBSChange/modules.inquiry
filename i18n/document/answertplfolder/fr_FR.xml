@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.inquiry.document.answertplfolder" lcid="fr_FR">
+	<include id="m.generic.document.folder" />
+	<key id="document-name">dossier pour modèles de réponses</key>
+	<key id="default-name">modèles de réponses</key>
+</i18n>

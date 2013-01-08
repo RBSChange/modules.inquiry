@@ -4,10 +4,12 @@
 		<model name="modules_generic/rootfolder">
 			<children>	
 				<child model="modules_generic/folder" />
+				<child model="modules_inquiry/answertplfolder" />
 				<child model="modules_inquiry/inquiry" />
 			</children>
 			<drops>
 				<drop model="modules_generic/folder" action="move" />
+				<drop model="modules_inquiry/answertplfolder" action="move" />
 				<drop model="modules_inquiry/inquiry" action="move" />
 			</drops>
 			<contextactions>
@@ -38,6 +40,19 @@
 				<contextaction name="edit" />
 			</contextactions>
 		</model>
+		<model name="modules_inquiry/answertplfolder">
+			<contextactions>
+				<contextaction name="createAnswerTemplate" />
+			</contextactions>
+			<children>
+				<child model="modules_inquiry/answertemplate" />
+			</children>
+		</model>
+		<model name="modules_inquiry/answertemplate">
+			<contextactions>
+				<contextaction name="edit" />
+			</contextactions>
+		</model>
 	</models>
 	<toolbar>
 		<toolbarbutton name="edit" />
@@ -56,5 +71,6 @@
 		<action name="reactivate" permission="ReActivate" icon="reactivate" labeli18n="m.uixul.bo.actions.ReActivate" />
 		<action name="openTreeNodeOrder" single="true" permission="Order" icon="sort" labeli18n="m.uixul.bo.actions.Set-children-order" />
 		<action name="createFolder" single="true" permission="Insert_folder" icon="create-folder" labeli18n="m.uixul.bo.actions.Create-folder" />
+		<action name="createAnswerTemplate" single="true" permission="Insert_answertemplate" icon="add" labeli18n="m.inquiry.bo.actions.create-answertemplate" />
 	</actions>
 </perspective>

@@ -4,4 +4,6 @@
   <binding name="inquiryform" className="inquiry_InquiryformScriptDocumentElement"/>
   <binding name="inquiry" className="inquiry_InquiryScriptDocumentElement"/>
   <binding name="message" className="inquiry_MessageScriptDocumentElement"/>
+  <binding name="answertplfolder" className="inquiry_AnswertplfolderScriptDocumentElement"/>
+  <binding name="answertemplate" className="inquiry_AnswertemplateScriptDocumentElement"/>
 </script>

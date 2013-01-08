@@ -8,7 +8,7 @@ class inquiry_MessageService extends f_persistentdocument_DocumentService
 	 * @var inquiry_MessageService
 	 */
 	private static $instance;
-
+	
 	/**
 	 * @return inquiry_MessageService
 	 */
@@ -20,7 +20,7 @@ class inquiry_MessageService extends f_persistentdocument_DocumentService
 		}
 		return self::$instance;
 	}
-
+	
 	/**
 	 * @return inquiry_persistentdocument_message
 	 */
@@ -28,7 +28,7 @@ class inquiry_MessageService extends f_persistentdocument_DocumentService
 	{
 		return $this->getNewDocumentInstanceByModelName('modules_inquiry/message');
 	}
-
+	
 	/**
 	 * Create a query based on 'modules_inquiry/message' model
 	 * @return f_persistentdocument_criteria_Query
@@ -104,24 +104,24 @@ class inquiry_MessageService extends f_persistentdocument_DocumentService
 					$infos['toStaffCount']++;
 					$messageInfo['messageType'] = 'toStaff';
 				}
-				else 
+				else
 				{
 					$infos['fromStaffCount']++;
 					$messageInfo['messageType'] = 'fromStaff';
 				}
 				$infos['messages'][] = $messageInfo;
 			}
-			else 
+			else
 			{
 				if ($message->getIsFromStaff())
 				{
 					$infos['toStaffCount']++;
 				}
-				else 
+				else
 				{
 					$infos['fromStaffCount']++;
-				}	
-			}			
+				}
+			}
 		}
 		$infos['toStaffCount'] = strval($infos['toStaffCount']);
 		$infos['fromStaffCount'] = strval($infos['fromStaffCount']);
@@ -134,25 +134,26 @@ class inquiry_MessageService extends f_persistentdocument_DocumentService
 			$infos['canSendNew'] = $inquiry->isPublished();
 			foreach (TaskHelper::getPendingTasksForCurrentBackendUserByDocumentId($inquiry->getId()) as $task)
 			{
-				$infos['tasks'][] = array(
-					'type' => 'USER', 
-					'id' => $task->getId(),
-					'label' => $task->getWorkitem()->getLabelAsHtml()
-				);
+				$infos['tasks'][] = array('type' => 'USER', 'id' => $task->getId(), 'label' => $task->getWorkitem()->getLabelAsHtml());
 			}
 			foreach ($inquiry->getDocumentService()->getMessageTasksForReceiver($inquiry) as $taskId => $taskLabel)
 			{
-				$infos['tasks'][] = array(
-					'type' => 'MSG', 
-					'id' => $taskId,
-					'label' => $taskLabel
-				);
+				$infos['tasks'][] = array('type' => 'MSG', 'id' => $taskId, 'label' => $taskLabel);
 			}
 		}
 		else
 		{
 			$infos['canSendNew'] = false;
 		}
+		
+		$templates = inquiry_AnswertemplateService::getInstance()->getPublished();
+		$list = array();
+		foreach ($templates as $template)
+		{
+			$list[] = array("value" => $template->getSubstitutedContents($inquiry), "label" => $template->getLabel());
+		}
+		$infos['templates'] = $list;
+		
 		return $infos;
 	}
 	
@@ -166,7 +167,7 @@ class inquiry_MessageService extends f_persistentdocument_DocumentService
 		$senderEmail = ($sender !== null) ? $sender->getEmail() : $target->getAuthorEmail();
 		$this->execSendMessage($target, $contents, $senderEmail, $sender, false);
 	}
-
+	
 	/**
 	 * @param inquiry_persistentdocument_inquiry $target
 	 * @param string $contents
@@ -177,7 +178,7 @@ class inquiry_MessageService extends f_persistentdocument_DocumentService
 		$sender = users_UserService::getInstance()->getCurrentBackEndUser();
 		$this->execSendMessage($target, $contents, $sender->getEmail(), $sender, true);
 	}
-
+	
 	/**
 	 * @param inquiry_persistentdocument_inquiry $target
 	 * @param string $content
@@ -194,7 +195,8 @@ class inquiry_MessageService extends f_persistentdocument_DocumentService
 		$message->setContentsAsBBCode($contents);
 		$message->setTarget($target);
 		$message->setIsFromStaff($isFromStaff);
-		$message->setLabel(LocaleService::getInstance()->transFO('m.inquiry.document.message.label-' . ($isFromStaff ? 'from' : 'to') . '-staff', array('ucf'), array('author' => $message->getAuthorFullName(), 'date' => $date)));
+		$message->setLabel(LocaleService::getInstance()->transFO('m.inquiry.document.message.label-' . ($isFromStaff ? 'from' : 'to') . '-staff', array(
+			'ucf'), array('author' => $message->getAuthorFullName(), 'date' => $date)));
 		$message->save();
 		
 		// Send the notification.
@@ -241,4 +243,5 @@ class inquiry_MessageService extends f_persistentdocument_DocumentService
 		$target = $message->getTarget();
 		return $target->getDocumentService()->getNotificationRecipients($target);
 	}
+
 }

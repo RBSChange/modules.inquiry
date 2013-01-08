@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+	<binding fileName="modules/list/persistentdocument/import/list_binding.xml" />
+	<binding fileName="modules/inquiry/persistentdocument/import/inquiry_binding.xml" />
+	
+	<rootfolder module="inquiry">
+		<answertplfolder byLabel="m.inquiry.document.answertplfolder.default-name"/>
+	</rootfolder>
+</script>

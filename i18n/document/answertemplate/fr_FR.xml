@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.inquiry.document.answertemplate" lcid="fr_FR">
+	<include id="m.generic.document.document" />
+	<key id="document-name">modèle de réponses</key>
+	<key id="label">label</key>
+	<key id="contents">contenu</key>
+	<key id="contents-help">Contenu du modèle de réponse. Ce contenu peut faire référence à des variables de substitution : {maVariable} fait référence à la variable "maVariable".</key>
+	<key id="var-inquiryid">identifiant de la demande</key>
+	<key id="var-targetlabel">libellé du document lié à la demande</key>
+</i18n>

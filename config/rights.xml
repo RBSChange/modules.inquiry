@@ -5,6 +5,8 @@
     <document name="folder"/>
     <document name="inquiryform"/>
     <document name="inquiry"/>
+    <document name="answertplfolder"/>
+    <document name="answertemplate"/>
   </actions>
   <roles>
     <role name="Admin">
