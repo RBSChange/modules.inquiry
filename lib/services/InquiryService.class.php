@@ -304,7 +304,7 @@ class inquiry_InquiryService extends f_persistentdocument_DocumentService
 	
 	/**
 	 * @param inquiry_persistentdocument_inquiry $inquiry
-	 * @return Array<String=>String>
+	 * @return mail_MessageRecipients
 	 */
 	public function getNotificationRecipients($inquiry)
 	{
